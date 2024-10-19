@@ -16,7 +16,7 @@ T_TEST.setup = function()
   }
 
   local mappings = {
-    t = {
+    T = {
       name = "Test",
       o = { "<cmd>lua require('neotest').output.open({ enter = true, auto_close = true })<cr>", "Output" },
       s = { "<cmd>lua require('neotest').summary.toggle()<cr>", "Summary" },

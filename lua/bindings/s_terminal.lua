@@ -1,6 +1,6 @@
-T_TERMINAL = {}
+S_TERMINAL = {}
 
-T_TERMINAL.setup = function()
+S_TERMINAL.setup = function()
   local status_ok, which_key = pcall(require, "which-key")
   if not status_ok then
     return
@@ -16,7 +16,7 @@ T_TERMINAL.setup = function()
   }
 
   local mappings = {
-    T = {
+    s = {
       name = "Terminal",
       h = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
       p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
@@ -39,4 +39,4 @@ T_TERMINAL.setup = function()
   which_key.register(mappings, opts)
 end
 
-return T_TERMINAL
+return S_TERMINAL

@@ -1,6 +1,6 @@
-O_OPTIONS = {}
+T_TOGGLES = {}
 
-O_OPTIONS.setup = function()
+T_TOGGLES.setup = function()
   local status_ok, which_key = pcall(require, "which-key")
   if not status_ok then
     return
@@ -36,8 +36,8 @@ O_OPTIONS.setup = function()
   }
 
   local mappings = {
-    o = {
-      name = "Options",
+    t = {
+      name = "toggles",
       b = { "<cmd>lua require('edgy').toggle()<cr>", "Toggle Bars" },
       w = { "<cmd>set wrap!<CR>", "Soft Wrap Text" },
       z = { "<cmd>ZenMode<CR>", "Zend Mode" },
@@ -64,4 +64,4 @@ O_OPTIONS.setup = function()
   which_key.register(mappings, opts)
 end
 
-return O_OPTIONS
+return T_TOGGLES

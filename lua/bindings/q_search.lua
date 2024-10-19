@@ -1,6 +1,6 @@
-S_SEARCH = {}
+Q_SEARCH = {}
 
-S_SEARCH.setup = function()
+Q_SEARCH.setup = function()
   local status_ok, which_key = pcall(require, "which-key")
   if not status_ok then
     return
@@ -16,7 +16,7 @@ S_SEARCH.setup = function()
   }
 
   local mappings = {
-    s = {
+    ["?"] = {
       name = "Search",
       c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
       h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
@@ -46,4 +46,4 @@ S_SEARCH.setup = function()
   which_key.register(mappings, opts)
 end
 
-return S_SEARCH
+return Q_SEARCH
