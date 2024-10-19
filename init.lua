@@ -21,3 +21,4 @@ require("lazy").setup("plugins", {
 })
 require("bindings")
 require("autocommands")
+require("utils")

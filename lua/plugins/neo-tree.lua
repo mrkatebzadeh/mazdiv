@@ -175,9 +175,9 @@ return {
             },
           },
           follow_current_file = {
-            enabled = false,
+            enabled = true,
             --
-            leave_dirs_open = false,
+            leave_dirs_open = true,
           },
           group_empty_dirs = false,
           hijack_netrw_behavior = "open_default",
