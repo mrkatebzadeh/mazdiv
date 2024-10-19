@@ -8,14 +8,22 @@ return {
 			require("orgmode").setup({
 				org_agenda_files = "~/Dropbox/org/agenda/**/*",
 				org_default_notes_file = "~/Dropbox/org/agenda/notes.org",
+				mappings = {
+					-- disable_all = true,
+					global = {
+						org_capture = { "<Leader>oc", desc = "Open Capture Prompt" },
+					},
+          org = {
+          }
+				},
 			})
 
-			-- NOTE: If you are using nvim-treesitter with ~ensure_installed = "all"~ option
-			-- add ~org~ to ignore_install
 			require("nvim-treesitter.configs").setup({
 				ensure_installed = "all",
 				ignore_install = { "org" },
 			})
+			vim.opt.conceallevel = 2
+			vim.opt.concealcursor = "nc"
 		end,
 	},
 	{
@@ -67,6 +75,7 @@ return {
 				database = {
 					path = "~/Dropbox/org/roam/org-roam.db",
 				},
+				-- bindings = false,
 			})
 		end,
 	},
