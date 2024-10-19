@@ -117,6 +117,7 @@ return {
             ["<space>"] = "noop",
             ["<2-LeftMouse>"] = "open",
             ["<cr>"] = "open",
+            ["<tab>"] = "open",
             ["<esc>"] = "cancel",
             ["P"] = { "toggle_preview", config = { use_float = true, use_image_nvim = true } },
             ["l"] = "focus_preview",
