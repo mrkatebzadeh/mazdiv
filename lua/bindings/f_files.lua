@@ -18,12 +18,12 @@ F_FILES.setup = function()
 	local mappings = {
 		f = {
 			name = "Files",
-			n = { "<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>", "File Browser" },
+			f = { "<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>", "File Browser" },
 			N = { "<cmd>Telescope file_browser <cr>", "File Browser" },
 			e = { "<cmd>Neotree toggle filesystem<cr>", "NeoTree" },
 			b = { "<cmd>Neotree buffers reveal float<cr>", "Buffers" },
 			F = { "<cmd>EditBufferDir<cr>", "Find File" },
-			f = { "<cmd>Telescope find_files<cr>", "Find File Fuzzy" },
+			n = { "<cmd>Telescope find_files<cr>", "Find File Fuzzy" },
 			g = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
 			o = { "<cmd>Telescope oldfiles theme=ivy<cr>", "Old Files" },
 			h = { "<cmd>Telescope help_tags theme=ivy<cr>", "Help Tags" },

@@ -22,6 +22,7 @@ require("lazy").setup("plugins", {
 require("bindings")
 require("autocommands")
 require("utils")
+require("pick")
 
 if vim.g.neovide then
   require("neovide")
