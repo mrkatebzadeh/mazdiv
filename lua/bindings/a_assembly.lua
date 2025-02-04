@@ -6,35 +6,17 @@ A_ASSEMBLY.setup = function()
     return
   end
 
-  local opts = {
-    mode = "n",
-    prefix = "<leader>",
-    buffer = nil,
-    silent = true,
-    noremap = true,
-    nowait = true,
-  }
-
   local mappings = {
-    a = {
-      name = "Assembly",
-      a = { "<cmd>Godbolt<CR>", "Godbolt" },
-      c = { "<cmd>GodboltCompiler telescope<CR>", "Godbolt Custom Compiler" },
+    {
+      mode = { "v", "n" },
+      { "<leader>a", group = "Assembly", nowait = true, remap = false },
+      { "<leader>aa", "<cmd>Godbolt<CR>", desc = "Godbolt", nowait = true, remap = false },
+      { "<leader>ac", "<cmd>GodboltCompiler telescope<CR>", desc = "Godbolt Custom Compiler", nowait = true, remap = false },
     },
   }
 
-  which_key.register(mappings, opts)
+  which_key.add(mappings)
 
-  opts = {
-    mode = "v",
-    prefix = "<leader>",
-    buffer = nil,
-    silent = true,
-    noremap = true,
-    nowait = true,
-  }
-
-  which_key.register(mappings, opts)
 end
 
 return A_ASSEMBLY

@@ -39,63 +39,46 @@ local setup = {
       g = true,
     },
   },
-  key_labels = {
-    -- override the label used to display some keys. It doesn't effect WK in any other way.
-    -- For example:
-    -- ["<space>"] = "SPC",
-    -- ["<cr>"] = "RET",
-    -- ["<tab>"] = "TAB",
-  },
   icons = {
     breadcrumb = "»",
     separator = "->",
     group = "+",
   },
-  popup_mappings = {
+  --[[ popup_mappings = {
     scroll_down = "<c-d>",
     scroll_up = "<c-u>",
-  },
-  window = {
+  }, ]]
+  --[[ window = {
     border = "rounded",
     position = "bottom",
     margin = { 1, 0, 1, 0 },
     padding = { 2, 2, 2, 2 },
     winblend = 0,
-  },
+  }, ]]
   layout = {
     height = { min = 4, max = 25 },
     width = { min = 20, max = 50 },
     spacing = 3,
     align = "left",
   },
-  ignore_missing = true,
-  hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " },
+  -- hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " },
   show_help = true,
-  triggers = "auto",
-  triggers_blacklist = {
+  -- triggers = "auto",
+  --[[ triggers_blacklist = {
     i = { "j", "k" },
     v = { "j", "k" },
-  },
-}
-
-local opts = {
-  mode = "n",
-  prefix = "<leader>",
-  buffer = nil,
-  silent = true,
-  noremap = true,
-  nowait = true,
+  }, ]]
 }
 
 local mappings = {
-  A = { ":Alpha<CR>", "Alpha" },
-  q = { "<cmd>lua my_quit()<CR>", "Quit" },
-  P = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
-  H = {"<cmd>nohlsearch<cr>", "No Highlight"},
+    { "<leader>A", ":Alpha<CR>", desc = "Alpha", nowait = true, remap = false },
+    { "<leader>H", "<cmd>nohlsearch<cr>", desc = "No Highlight", nowait = true, remap = false },
+    { "<leader>P", "<cmd>lua require('telescope').extensions.projects.projects()<cr>", desc = "Projects", nowait = true, remap = false },
+    { "<leader>q", "<cmd>lua my_quit()<CR>", desc = "Quit", nowait = true, remap = false },
 }
 
 which_key.setup(setup)
-which_key.register(mappings, opts)
+which_key.add(mappings)
 
 
 

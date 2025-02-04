@@ -6,39 +6,21 @@ D_DEBUG.setup = function()
     return
   end
 
-  local opts = {
-    mode = "n",
-    prefix = "<leader>",
-    buffer = nil,
-    silent = true,
-    noremap = true,
-    nowait = true,
-  }
-
   local mappings = {
-    d = {
-      name = "Debug",
-      b = { ":DapToggleBreakpoint<CR>", "Toggle Breakpoint" },
-      c = { ":DapContinue<CR>", "Continue" },
-      o = { ":DapStepOver<CR>", "Step Over" },
-      u = { ":DapStepOut<CR>", "Step Out" },
-      i = { ":DapStepInto<CR>", "Step Into" },
-      q = { ":DapTerminate<CR>", "Terminate" },
+    {
+      mode = { "v", "n" },
+      { "<leader>d", group = "Debug", nowait = true, remap = false },
+      { "<leader>db", ":DapToggleBreakpoint<CR>", desc = "Toggle Breakpoint", nowait = true, remap = false },
+      { "<leader>dc", ":DapContinue<CR>", desc = "Continue", nowait = true, remap = false },
+      { "<leader>di", ":DapStepInto<CR>", desc = "Step Into", nowait = true, remap = false },
+      { "<leader>do", ":DapStepOver<CR>", desc = "Step Over", nowait = true, remap = false },
+      { "<leader>dq", ":DapTerminate<CR>", desc = "Terminate", nowait = true, remap = false },
+      { "<leader>du", ":DapStepOut<CR>", desc = "Step Out", nowait = true, remap = false },
     },
   }
 
-  which_key.register(mappings, opts)
+  which_key.add(mappings)
 
-  opts = {
-    mode = "v",
-    prefix = "<leader>",
-    buffer = nil,
-    silent = true,
-    noremap = true,
-    nowait = true,
-  }
-
-  which_key.register(mappings, opts)
 end
 
 return D_DEBUG

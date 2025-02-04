@@ -21,25 +21,18 @@ vim.api.nvim_create_autocmd("LspAttach", {
     if client.server_capabilities.inlayHintProvider then
       vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
       local wk = require("which-key")
-      local opts = {
-        mode = "n",
-        prefix = "<leader>",
-        buffer = nil,
-        silent = true,
-        noremap = true,
-        nowait = true,
-      }
-      wk.register({
-        o = {
-          h = {
-            function()
-              local current_setting = vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr })
-              vim.lsp.inlay_hint.enable(not current_setting, { bufnr = bufnr })
-            end,
-            "Toggle Inlay Hints",
-          },
+      wk.add({
+        {
+          "<leader>oh",
+          function()
+            local current_setting = vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr })
+            vim.lsp.inlay_hint.enable(not current_setting, { bufnr = bufnr })
+          end,
+          desc = "Toggle Inlay Hints",
+          nowait = true,
+          remap = false,
         },
-      }, opts)
+      })
     end
 
     -- Auto-refresh code lenses

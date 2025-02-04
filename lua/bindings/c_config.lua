@@ -6,23 +6,13 @@ C_CONFIG.setup = function()
     return
   end
 
-  local opts = {
-    mode = "n",
-    prefix = "<leader>",
-    buffer = nil,
-    silent = true,
-    noremap = true,
-    nowait = true,
-  }
-
   local mappings = {
-    c = {
-      name = "Config",
-      c = { "<cmd>EditNvimConfig<CR>", "Edit Neovim"},
-    },
+    { "<leader>c", group = "Config", nowait = true, remap = false },
+    { "<leader>cc", "<cmd>EditNvimConfig<CR>", desc = "Edit Neovim", nowait = true, remap = false },
   }
 
-  which_key.register(mappings, opts)
+  which_key.add(mappings)
+
 end
 
 return C_CONFIG

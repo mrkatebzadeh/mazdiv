@@ -6,36 +6,18 @@ S_SESSION.setup = function()
     return
   end
 
-  local opts = {
-    mode = "n",
-    prefix = "<leader>",
-    buffer = nil,
-    silent = true,
-    noremap = true,
-    nowait = true,
-  }
-
   local mappings = {
-    S = {
-      name = "Session",
-      s = { "<cmd>SessionManager save_current_session <cr>", "Save Session" },
-      l = { "<cmd>SessionManager load_session<cr>", "Load Session" },
-      d = { "<cmd>SessionManager delete_session<cr>", "Delete Session" },
+    {
+      mode = { "v", "n" },
+      { "<leader>S", group = "Session", nowait = true, remap = false },
+      { "<leader>Sd", "<cmd>SessionManager delete_session<cr>", desc = "Delete Session", nowait = true, remap = false },
+      { "<leader>Sl", "<cmd>SessionManager load_session<cr>", desc = "Load Session", nowait = true, remap = false },
+      { "<leader>Ss", "<cmd>SessionManager save_current_session <cr>", desc = "Save Session", nowait = true, remap = false },
     },
   }
 
-  which_key.register(mappings, opts)
+  which_key.add(mappings)
 
-  opts = {
-    mode = "v",
-    prefix = "<leader>",
-    buffer = nil,
-    silent = true,
-    noremap = true,
-    nowait = true,
-  }
-
-  which_key.register(mappings, opts)
 end
 
 return S_SESSION

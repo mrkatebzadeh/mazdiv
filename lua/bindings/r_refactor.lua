@@ -6,40 +6,22 @@ R_REFACTOR.setup = function()
     return
   end
 
-  local opts = {
-    mode = "n",
-    prefix = "<leader>",
-    buffer = nil,
-    silent = true,
-    noremap = true,
-    nowait = true,
-  }
-
   local mappings = {
-    r = {
-      name = "Refactor",
-      e = { ":Refactor extract ", "Extract" },
-      f = { ":Refactor extract_to_file ", "Extract to File" },
-      v = { ":Refactor extract_var ", "Extract Variable" },
-      i = { ":Refactor inline_var<cr>", "Inline Variable" },
-      I = { ":Refactor inline_func<cr>", "Inline Function" },
-      b = { ":Refactor extract_block<cr>", "Extract Block" },
-      B = { ":Refactor extract_block_to_file<cr>", "Extract Block to File" },
+    {
+      mode = { "v", "n" },
+      { "<leader>r", group = "Refactor", nowait = true, remap = false },
+      { "<leader>rB", ":Refactor extract_block_to_file<cr>", desc = "Extract Block to File", nowait = true, remap = false },
+      { "<leader>rI", ":Refactor inline_func<cr>", desc = "Inline Function", nowait = true, remap = false },
+      { "<leader>rb", ":Refactor extract_block<cr>", desc = "Extract Block", nowait = true, remap = false },
+      { "<leader>re", ":Refactor extract ", desc = "Extract", nowait = true, remap = false },
+      { "<leader>rf", ":Refactor extract_to_file ", desc = "Extract to File", nowait = true, remap = false },
+      { "<leader>ri", ":Refactor inline_var<cr>", desc = "Inline Variable", nowait = true, remap = false },
+      { "<leader>rv", ":Refactor extract_var ", desc = "Extract Variable", nowait = true, remap = false },
     },
   }
 
-  which_key.register(mappings, opts)
+  which_key.add(mappings)
 
-  opts = {
-    mode = "v",
-    prefix = "<leader>",
-    buffer = nil,
-    silent = true,
-    noremap = true,
-    nowait = true,
-  }
-
-  which_key.register(mappings, opts)
 end
 
 return R_REFACTOR

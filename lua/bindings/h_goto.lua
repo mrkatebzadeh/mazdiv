@@ -6,39 +6,21 @@ H_GOTO.setup = function()
     return
   end
 
-  local opts = {
-    mode = "n",
-    prefix = "<leader>",
-    buffer = nil,
-    silent = true,
-    noremap = true,
-    nowait = true,
-  }
-
   local mappings = {
-    h = {
-      name = "Goto",
-      d = { "<cmd>lua require('goto-preview').goto_preview_definition()<cr>", "Definition" },
-      r = { "<cmd>lua require('goto-preview').goto_preview_references()<cr>", "References" },
-      t = { "<cmd>lua require('goto-preview').goto_preview_type_definition()<cr>", "Type Definition" },
-      i = { "<cmd>lua require('goto-preview').goto_preview_implementation()<cr>", "Implementation" },
-      l = { "<cmd>lua require('goto-preview').goto_preview_declaration()<cr>", "Declaration" },
-      c = { "<cmd>lua require('goto-preview').close_all_win()<cr>", "Close All Windows" },
+    {
+      mode = { "v", "n" },
+      { "<leader>h", group = "Goto", nowait = true, remap = false },
+      { "<leader>hc", "<cmd>lua require('goto-preview').close_all_win()<cr>", desc = "Close All Windows", nowait = true, remap = false },
+      { "<leader>hd", "<cmd>lua require('goto-preview').goto_preview_definition()<cr>", desc = "Definition", nowait = true, remap = false },
+      { "<leader>hi", "<cmd>lua require('goto-preview').goto_preview_implementation()<cr>", desc = "Implementation", nowait = true, remap = false },
+      { "<leader>hl", "<cmd>lua require('goto-preview').goto_preview_declaration()<cr>", desc = "Declaration", nowait = true, remap = false },
+      { "<leader>hr", "<cmd>lua require('goto-preview').goto_preview_references()<cr>", desc = "References", nowait = true, remap = false },
+      { "<leader>ht", "<cmd>lua require('goto-preview').goto_preview_type_definition()<cr>", desc = "Type Definition", nowait = true, remap = false },
     },
   }
 
-  which_key.register(mappings, opts)
+  which_key.add(mappings)
 
-  opts = {
-    mode = "v",
-    prefix = "<leader>",
-    buffer = nil,
-    silent = true,
-    noremap = true,
-    nowait = true,
-  }
-
-  which_key.register(mappings, opts)
 end
 
 return H_GOTO

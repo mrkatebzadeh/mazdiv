@@ -26,43 +26,25 @@ T_TOGGLES.setup = function()
 		end
 	end
 
-	local opts = {
-		mode = "n",
-		prefix = "<leader>",
-		buffer = nil,
-		silent = true,
-		noremap = true,
-		nowait = true,
-	}
-
 	local mappings = {
-		t = {
-			name = "toggles",
-			b = { "<cmd>lua require('edgy').toggle()<cr>", "Toggle Bars" },
-			w = { "<cmd>set wrap!<CR>", "Soft Wrap Text" },
-			z = { "<cmd>ZenMode<CR>", "Zend Mode" },
-			c = { "<cmd>ColorizerToggle<CR>", "Toggle Colorizer" },
-			o = { "<cmd>Outline<CR>", "Toggle Outline" },
-			i = { "<cmd>IBLToggle<cr>", "Indent Hints" },
-			t = { "<cmd>TodoTelescope<cr>", "TODOs" },
-			T = { '<cmd>lua require("theme-picker").open_theme_picker()<cr>', " Theme Picker" },
-			s = { "<cmd>lua SatelliteToggle()<cr>", "Scrollbar" },
-			u = { "<cmd>Telescope undo<cr>", "Undo" },
-		},
-	}
+    {
+      mode = { "v", "n" },
+      { "<leader>t", group = "toggles", nowait = true, remap = false },
+      { "<leader>tT", '<cmd>lua require("theme-picker").open_theme_picker()<cr>', desc = " Theme Picker", nowait = true, remap = false },
+      { "<leader>tb", "<cmd>lua require('edgy').toggle()<cr>", desc = "Toggle Bars", nowait = true, remap = false },
+      { "<leader>tc", "<cmd>ColorizerToggle<CR>", desc = "Toggle Colorizer", nowait = true, remap = false },
+      { "<leader>ti", "<cmd>IBLToggle<cr>", desc = "Indent Hints", nowait = true, remap = false },
+      { "<leader>to", "<cmd>Outline<CR>", desc = "Toggle Outline", nowait = true, remap = false },
+      { "<leader>ts", "<cmd>lua SatelliteToggle()<cr>", desc = "Scrollbar", nowait = true, remap = false },
+      { "<leader>tt", "<cmd>TodoTelescope<cr>", desc = "TODOs", nowait = true, remap = false },
+      { "<leader>tu", "<cmd>Telescope undo<cr>", desc = "Undo", nowait = true, remap = false },
+      { "<leader>tw", "<cmd>set wrap!<CR>", desc = "Soft Wrap Text", nowait = true, remap = false },
+      { "<leader>tz", "<cmd>ZenMode<CR>", desc = "Zend Mode", nowait = true, remap = false },
+    },
+  }
 
-	which_key.register(mappings, opts)
+	which_key.add(mappings)
 
-	opts = {
-		mode = "v",
-		prefix = "<leader>",
-		buffer = nil,
-		silent = true,
-		noremap = true,
-		nowait = true,
-	}
-
-	which_key.register(mappings, opts)
 end
 
 return T_TOGGLES

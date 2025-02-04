@@ -6,37 +6,19 @@ S_TERMINAL.setup = function()
     return
   end
 
-  local opts = {
-    mode = "n",
-    prefix = "<leader>",
-    buffer = nil,
-    silent = true,
-    noremap = true,
-    nowait = true,
-  }
-
   local mappings = {
-    s = {
-      name = "Terminal",
-      h = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
-      p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
-      f = { "<cmd>ToggleTerm direction=float<cr>", "Float Terminal" },
-      t = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal Terminal" },
+    {
+      mode = { "v", "n" },
+      { "<leader>s", group = "Terminal", nowait = true, remap = false },
+      { "<leader>sf", "<cmd>ToggleTerm direction=float<cr>", desc = "Float Terminal", nowait = true, remap = false },
+      { "<leader>sh", "<cmd>lua _HTOP_TOGGLE()<cr>", desc = "Htop", nowait = true, remap = false },
+      { "<leader>sp", "<cmd>lua _PYTHON_TOGGLE()<cr>", desc = "Python", nowait = true, remap = false },
+      { "<leader>st", "<cmd>ToggleTerm size=10 direction=horizontal<cr>", desc = "Horizontal Terminal", nowait = true, remap = false },
     },
   }
 
-  which_key.register(mappings, opts)
+  which_key.add(mappings)
 
-  opts = {
-    mode = "v",
-    prefix = "<leader>",
-    buffer = nil,
-    silent = true,
-    noremap = true,
-    nowait = true,
-  }
-
-  which_key.register(mappings, opts)
 end
 
 return S_TERMINAL

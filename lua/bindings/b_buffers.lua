@@ -22,43 +22,21 @@ B_BUFFERS.setup = function()
     end
   end
 
-  local opts = {
-    mode = "n",
-    prefix = "<leader>",
-    buffer = nil,
-    silent = true,
-    noremap = true,
-    nowait = true,
-  }
-
   local mappings = {
-    b = {
-      name = "Buffers",
-      b = {
-        "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-        "List Buffers",
-      },
-      -- d = { ":bp<bar>sp<bar>bn<bar>bd<CR>", "Close Buffer" },
-      d = { "<cmd>bp | bd #<cr>", "Close Buffer" },
-      h = { "<cmd>lua require('harpoon.mark').add_file()<cr>", "Harpoon Add Buffer" },
-      l = { "<cmd>Telescope harpoon marks<cr>", "Harpoon List Files" },
-      o = { '<cmd>%bdelete|edit #|normal`"<CR>', "Delete Others" },
-      t = { "<cmd>lua toggle_qf()<CR>", "Toggle Quickfix" },
+    {
+      mode = { "v", "n" },
+      { "<leader>b", group = "Buffers", nowait = true, remap = false },
+      { "<leader>bb", "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>", desc = "List Buffers", nowait = true, remap = false },
+      { "<leader>bd", "<cmd>bp | bd #<cr>", desc = "Close Buffer", nowait = true, remap = false },
+      { "<leader>bh", "<cmd>lua require('harpoon.mark').add_file()<cr>", desc = "Harpoon Add Buffer", nowait = true, remap = false },
+      { "<leader>bl", "<cmd>Telescope harpoon marks<cr>", desc = "Harpoon List Files", nowait = true, remap = false },
+      { "<leader>bo", '<cmd>%bdelete|edit #|normal`"<CR>', desc = "Delete Others", nowait = true, remap = false },
+      { "<leader>bt", "<cmd>lua toggle_qf()<CR>", desc = "Toggle Quickfix", nowait = true, remap = false },
     },
   }
 
-  which_key.register(mappings, opts)
+  which_key.add(mappings)
 
-  opts = {
-    mode = "v",
-    prefix = "<leader>",
-    buffer = nil,
-    silent = true,
-    noremap = true,
-    nowait = true,
-  }
-
-  which_key.register(mappings, opts)
 end
 
 return B_BUFFERS

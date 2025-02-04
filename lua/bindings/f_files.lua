@@ -16,40 +16,30 @@ F_FILES.setup = function()
 	}
 
 	local mappings = {
-		f = {
-			name = "Files",
-			f = { "<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>", "File Browser" },
-			N = { "<cmd>Telescope file_browser <cr>", "File Browser" },
-			e = { "<cmd>Neotree toggle filesystem<cr>", "NeoTree" },
-			b = { "<cmd>Neotree buffers reveal float<cr>", "Buffers" },
-			F = { "<cmd>EditBufferDir<cr>", "Find File" },
-			n = { "<cmd>Telescope find_files<cr>", "Find File Fuzzy" },
-			g = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
-			o = { "<cmd>Telescope oldfiles theme=ivy<cr>", "Old Files" },
-			h = { "<cmd>Telescope help_tags theme=ivy<cr>", "Help Tags" },
-			m = { ":Move ", "Move" },
-			d = { ":Delete<CR>", "Delete" },
-			r = { ":Rename ", "Rename" },
-			c = { ":Chmod ", "Chmod" },
-			k = { ":Mkdir ", "Mkdir" },
-			w = { ":cmd>w!<CR>", "Save" },
-			W = { ":SudoWrite<CR>", "SudoWrite" },
-			E = { ":SudoEdit ", "SudoEdit" },
-		},
-	}
+    {
+      mode = { "v", "n" },
+      { "<leader>f", group = "Files", nowait = true, remap = false },
+      { "<leader>fE", ":SudoEdit ", desc = "SudoEdit", nowait = true, remap = false },
+      { "<leader>fF", "<cmd>EditBufferDir<cr>", desc = "Find File", nowait = true, remap = false },
+      { "<leader>fN", "<cmd>Telescope file_browser <cr>", desc = "File Browser", nowait = true, remap = false },
+      { "<leader>fW", ":SudoWrite<CR>", desc = "SudoWrite", nowait = true, remap = false },
+      { "<leader>fb", "<cmd>Neotree buffers reveal float<cr>", desc = "Buffers", nowait = true, remap = false },
+      { "<leader>fc", ":Chmod ", desc = "Chmod", nowait = true, remap = false },
+      { "<leader>fd", ":Delete<CR>", desc = "Delete", nowait = true, remap = false },
+      { "<leader>fe", "<cmd>Neotree toggle filesystem<cr>", desc = "NeoTree", nowait = true, remap = false },
+      { "<leader>ff", "<cmd>Telescope file_browser path=%:p:help |select_buffer=true<cr>|", desc = "File Browser", nowait = true, remap = false },
+      { "<leader>fg", "<cmd>Telescope live_grep theme=ivy<cr>", desc = "Find Text", nowait = true, remap = false },
+      { "<leader>fh", "<cmd>Telescope help_tags theme=ivy<cr>", desc = "Help Tags", nowait = true, remap = false },
+      { "<leader>fk", ":Mkdir ", desc = "Mkdir", nowait = true, remap = false },
+      { "<leader>fm", ":Move ", desc = "Move", nowait = true, remap = false },
+      { "<leader>fn", "<cmd>Telescope find_files<cr>", desc = "Find File Fuzzy", nowait = true, remap = false },
+      { "<leader>fo", "<cmd>Telescope oldfiles theme=ivy<cr>", desc = "Old Files", nowait = true, remap = false },
+      { "<leader>fr", ":Rename ", desc = "Rename", nowait = true, remap = false },
+      { "<leader>fw", ":cmd>w!<CR>", desc = "Save", nowait = true, remap = false },
+    },
+  }
 
-	which_key.register(mappings, opts)
-
-	opts = {
-		mode = "v",
-		prefix = "<leader>",
-		buffer = nil,
-		silent = true,
-		noremap = true,
-		nowait = true,
-	}
-
-	which_key.register(mappings, opts)
+	which_key.add(mappings)
 end
 
 return F_FILES

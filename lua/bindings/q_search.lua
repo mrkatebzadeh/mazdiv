@@ -6,44 +6,26 @@ Q_SEARCH.setup = function()
     return
   end
 
-  local opts = {
-    mode = "n",
-    prefix = "<leader>",
-    buffer = nil,
-    silent = true,
-    noremap = true,
-    nowait = true,
-  }
-
   local mappings = {
-    ["?"] = {
-      name = "Search",
-      c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-      h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
-      M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
-      r = { "<cmd>lua require('spectre').open()<cr>", "Replace" },
-      s = { "<Plug>(leap-forward)", "Search Forward Leap" },
-      S = { "<Plug>(leap-backward)", "Search Backward Leap" },
-      R = { "<cmd>Telescope registers<cr>", "Registers" },
-      k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-      C = { "<cmd>Telescope commands<cr>", "Commands" },
-      w = { "<cmd>lua require('spectre').open_visual({select_word=true})<cr>", "Replace Word" },
-      f = { "<cmd>lua require('spectre').open_file_search()<cr>", "Replace Buffer" },
+    {
+      mode = { "v", "n" },
+      { "<leader>?", group = "Search", nowait = true, remap = false },
+      { "<leader>?C", "<cmd>Telescope commands<cr>", desc = "Commands", nowait = true, remap = false },
+      { "<leader>?M", "<cmd>Telescope man_pages<cr>", desc = "Man Pages", nowait = true, remap = false },
+      { "<leader>?R", "<cmd>Telescope registers<cr>", desc = "Registers", nowait = true, remap = false },
+      { "<leader>?S", "<Plug>(leap-backward)", desc = "Search Backward Leap", nowait = true, remap = false },
+      { "<leader>?c", "<cmd>Telescope colorscheme<cr>", desc = "Colorscheme", nowait = true, remap = false },
+      { "<leader>?f", "<cmd>lua require('spectre').open_file_search()<cr>", desc = "Replace Buffer", nowait = true, remap = false },
+      { "<leader>?h", "<cmd>Telescope help_tags<cr>", desc = "Find Help", nowait = true, remap = false },
+      { "<leader>?k", "<cmd>Telescope keymaps<cr>", desc = "Keymaps", nowait = true, remap = false },
+      { "<leader>?r", "<cmd>lua require('spectre').open()<cr>", desc = "Replace", nowait = true, remap = false },
+      { "<leader>?s", "<Plug>(leap-forward)", desc = "Search Forward Leap", nowait = true, remap = false },
+      { "<leader>?w", "<cmd>lua require('spectre').open_visual({select_word=true})<cr>", desc = "Replace Word", nowait = true, remap = false },
     },
   }
 
-  which_key.register(mappings, opts)
+  which_key.add(mappings)
 
-  opts = {
-    mode = "v",
-    prefix = "<leader>",
-    buffer = nil,
-    silent = true,
-    noremap = true,
-    nowait = true,
-  }
-
-  which_key.register(mappings, opts)
 end
 
 return Q_SEARCH

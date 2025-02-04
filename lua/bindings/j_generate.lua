@@ -6,34 +6,13 @@ J_GENERATE.setup = function()
     return
   end
 
-  local opts = {
-    mode = "n",
-    prefix = "<leader>",
-    buffer = nil,
-    silent = true,
-    noremap = true,
-    nowait = true,
-  }
-
   local mappings = {
-    j = {
-      name = "Generate",
-      a = { "<cmd>lua require('neogen').generate()<CR>", "Annotations" },
-    },
+    { "<leader>j", group = "Generate", mode = "v", nowait = true, remap = false },
+    { "<leader>ja", "<cmd>lua require('neogen').generate()<CR>", desc = "Annotations", mode = "v", nowait = true, remap = false },
   }
 
-  which_key.register(mappings, opts)
+  which_key.add(mappings)
 
-  opts = {
-    mode = "v",
-    prefix = "<leader>",
-    buffer = nil,
-    silent = true,
-    noremap = true,
-    nowait = true,
-  }
-
-  which_key.register(mappings, opts)
 end
 
 return J_GENERATE

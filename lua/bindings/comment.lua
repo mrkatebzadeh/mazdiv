@@ -27,33 +27,11 @@ COMMENT.setup = function()
     { desc = "Comment toggle blockwise (visual)" }
   )
 
-  local opts = {
-    mode = "n",
-    prefix = "<leader>",
-    buffer = nil,
-    silent = true,
-    noremap = true,
-    nowait = true,
-  }
-
   local mappings = {
-    ["/"] = {
-      name = "Window",
-    },
+    { "<leader>/", group = "Window", mode = { "v", "n" }, nowait = true, remap = false },
   }
+  which_key.add(mappings)
 
-  which_key.register(mappings, opts)
-
-  opts = {
-    mode = "v",
-    prefix = "<leader>",
-    buffer = nil,
-    silent = true,
-    noremap = true,
-    nowait = true,
-  }
-
-  which_key.register(mappings, opts)
-end
+  end
 
 return COMMENT
