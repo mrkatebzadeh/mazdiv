@@ -83,6 +83,7 @@
   "refactoring.nvim": { "branch": "master", "commit": "2db6d378e873de31d18ade549c2edba64ff1c2e3" },
   "rustaceanvim": { "branch": "master", "commit": "f03035fa03ccb36cd26d0792c946fbacba1d1a39" },
   "satellite.nvim": { "branch": "main", "commit": "34cdb017ebb239bdba5a5ac23c6307837b5e3b7e" },
+  "skel-nvim": { "branch": "main", "commit": "db2f023c5a7bfbae6d5896be2cd0ceb0e6b92a80" },
   "sniprun": { "branch": "master", "commit": "67ac2d84d03f3b857d59571ff5fefb6080dffa2d" },
   "telescope-file-browser.nvim": { "branch": "master", "commit": "626998e5c1b71c130d8bc6cf7abb6709b98287bb" },
   "telescope-ui-select.nvim": { "branch": "master", "commit": "6e51d7da30bd139a6950adf2a47fda6df9fa06d2" },

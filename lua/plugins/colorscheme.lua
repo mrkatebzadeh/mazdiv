@@ -25,7 +25,7 @@ return {
           },
         },
         color_overrides = {
-          frappe = {
+          doom = {
             rosewater = "#d4c4b4",
             flamingo = "#6b757f",
             pink = "#7c9f85",
