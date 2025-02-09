@@ -1,27 +1,52 @@
 local status_ok, which_key = pcall(require, "which-key")
 if not status_ok then
-  return
+	return
 end
 
-local opts = {
-  mode = "n", -- NORMAL mode
-  prefix = "<leader>",
-  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-  silent = true, -- use `silent` when creating keymaps
-  noremap = true, -- use `noremap` when creating keymaps
-  nowait = true, -- use `nowait` when creating keymaps
-}
-
 local mappings = {
-  k = {
-    name = "+Javascript",
-    i = { "<cmd>TypescriptAddMissingImports<Cr>", "AddMissingImports" },
-    o = { "<cmd>TypescriptOrganizeImports<cr>", "OrganizeImports" },
-    u = { "<cmd>TypescriptRemoveUnused<Cr>", "RemoveUnused" },
-    r = { "<cmd>TypescriptRenameFile<Cr>", "RenameFile" },
-    f = { "<cmd>TypescriptFixAll<Cr>", "FixAll" },
-    g = { "<cmd>TypescriptGoToSourceDefinition<Cr>", "GoToSourceDefinition" },
-  },
-}
 
-which_key.register(mappings, opts)
+	{ "<leader>k", group = "Javascript", nowait = true, remap = false },
+	{
+		"<leader>kf",
+		"<cmd>TypescriptFixAll<Cr>",
+		desc = "FixAll",
+		nowait = true,
+		remap = false,
+	},
+	{
+		"<leader>kg",
+		"<cmd>TypescriptGoToSourceDefinition<Cr>",
+		desc = "GoToSourceDefinition",
+		nowait = true,
+		remap = false,
+	},
+	{
+		"<leader>ki",
+		"<cmd>TypescriptAddMissingImports<Cr>",
+		desc = "AddMissingImports",
+		nowait = true,
+		remap = false,
+	},
+	{
+		"<leader>ko",
+		"<cmd>TypescriptOrganizeImports<cr>",
+		desc = "OrganizeImports",
+		nowait = true,
+		remap = false,
+	},
+	{
+		"<leader>kr",
+		"<cmd>TypescriptRenameFile<Cr>",
+		desc = "RenameFile",
+		nowait = true,
+		remap = false,
+	},
+	{
+		"<leader>ku",
+		"<cmd>TypescriptRemoveUnused<Cr>",
+		desc = "RemoveUnused",
+		nowait = true,
+		remap = false,
+	},
+}
+which_key.add(mappings)

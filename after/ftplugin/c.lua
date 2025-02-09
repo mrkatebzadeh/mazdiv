@@ -1,33 +1,99 @@
 local status_ok, which_key = pcall(require, "which-key")
 if not status_ok then
-  return
+	return
 end
 
-local opts = {
-  mode = "n",    -- NORMAL mode
-  prefix = "<leader>",
-  buffer = nil,  -- Global mappings. Specify a buffer number for buffer local mappings
-  silent = true, -- use `silent` when creating keymaps
-  noremap = true, -- use `noremap` when creating keymaps
-  nowait = true, -- use `nowait` when creating keymaps
-}
-
 local mappings = {
-  k = {
-    name = "+C/C++",
-    c = { ":Task start cmake configure<Cr>", "Configure" },
-    t = { ":Task set_module_param cmake target<Cr>", "Set Target" },
-    m = { "<CMD>lua require('cppman').open_cppman_for(vim.fn.expand('<cword>'))<CR>", "CPP Man Word" },
-    M = { "<CMD>lua require('cppman').input()<CR>", "CPP Man" },
-    p = { ":Task set_task_param cmake run ", "Set Parameters" },
-    r = { ":Task start cmake run<Cr>", "Run" },
-    d = { ":Task start cmake debug<Cr>", "Debug" },
-    b = { ":Task start cmake build<Cr>", "Build" },
-    B = { ":Task start cmake build_all<Cr>", "Build All" },
-    C = { ":Task start cmake clean<Cr>", "Clean" },
-    s = { ":ClangdSwitchSourceHeader<cr>", "Header/Src" },
-    h = { "<cmd>HeaderguardAdd<Cr>", "Add Headerguard" },
-  },
+	{
+		"<leader>k",
+		group = "C/C++",
+		nowait = true,
+		remap = false,
+	},
+	{
+		"<leader>kB",
+		":Task start cmake build_all<Cr>",
+		desc = "Build All",
+		nowait = true,
+		remap = false,
+	},
+	{
+		"<leader>kC",
+		":Task start cmake clean<Cr>",
+		desc = "Clean",
+		nowait = true,
+		remap = false,
+	},
+	{
+		"<leader>kM",
+		"<CMD>lua require('cppman').input()<CR>",
+		desc = "CPP Man",
+		nowait = true,
+		remap = false,
+	},
+	{
+		"<leader>kb",
+		":Task start cmake build<Cr>",
+		desc = "Build",
+		nowait = true,
+		remap = false,
+	},
+	{
+		"<leader>kc",
+		":Task start cmake configure<Cr>",
+		desc = "Configure",
+		nowait = true,
+		remap = false,
+	},
+	{
+		"<leader>kd",
+		":Task start cmake debug<Cr>",
+		desc = "Debug",
+		nowait = true,
+		remap = false,
+	},
+	{
+		"<leader>kh",
+		"<cmd>HeaderguardAdd<Cr>",
+		desc = "Add Headerguard",
+		nowait = true,
+		remap = false,
+	},
+	{
+		"<leader>km",
+		"<CMD>lua require('cppman').open_cppman_for(vim.fn.expand('<cword>'))<CR>",
+		desc = "CPP Man Word",
+		nowait = true,
+		remap = false,
+	},
+	{
+		"<leader>kp",
+		":Task set_task_param cmake run ",
+		desc = "Set Parameters",
+		nowait = true,
+		remap = false,
+	},
+	{
+		"<leader>kr",
+		":Task start cmake run<Cr>",
+		desc = "Run",
+		nowait = true,
+		remap = false,
+	},
+	{
+		"<leader>ks",
+		":ClangdSwitchSourceHeader<cr>",
+		desc = "Header/Src",
+		nowait = true,
+		remap = false,
+	},
+	{
+		"<leader>kt",
+		":Task set_module_param cmake target<Cr>",
+		desc = "Set Target",
+		nowait = true,
+		remap = false,
+	},
 }
 
-which_key.register(mappings, opts)
+which_key.add(mappings)
