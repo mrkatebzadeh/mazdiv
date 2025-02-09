@@ -1,86 +1,98 @@
 local status_ok, which_key = pcall(require, "which-key")
 if not status_ok then
-  return
+	return
 end
 
 function my_quit()
-  local bufnr = vim.api.nvim_get_current_buf()
-  local buf_windows = vim.call("win_findbuf", bufnr)
-  local modified = vim.api.nvim_get_option_value("modified", { buf = bufnr })
-  if modified and #buf_windows == 1 then
-    vim.ui.input({
-      prompt = "Unwritten changes. Do you want to quit? (y/n) ",
-    }, function(input)
-
-      if input == "y" then
-        vim.cmd("qa!")
-      end
-    end)
-  else
-    vim.cmd("qa!")
-  end
+	local bufnr = vim.api.nvim_get_current_buf()
+	local buf_windows = vim.call("win_findbuf", bufnr)
+	local modified = vim.api.nvim_get_option_value("modified", { buf = bufnr })
+	if modified and #buf_windows == 1 then
+		vim.ui.input({
+			prompt = "Unwritten changes. Do you want to quit? (y/n) ",
+		}, function(input)
+			if input == "y" then
+				vim.cmd("qa!")
+			end
+		end)
+	else
+		vim.cmd("qa!")
+	end
 end
 
 local setup = {
-  plugins = {
-    marks = true,
-    registers = true,
-    spelling = {
-      enabled = true,
-      suggestions = 20,
-    },
-    presets = {
-      operators = false,
-      motions = true,
-      text_objects = true,
-      windows = true,
-      nav = true,
-      z = true,
-      g = true,
-    },
-  },
-  icons = {
-    breadcrumb = "»",
-    separator = "->",
-    group = "+",
-  },
-  --[[ popup_mappings = {
-    scroll_down = "<c-d>",
-    scroll_up = "<c-u>",
-  }, ]]
-  --[[ window = {
-    border = "rounded",
-    position = "bottom",
-    margin = { 1, 0, 1, 0 },
-    padding = { 2, 2, 2, 2 },
-    winblend = 0,
-  }, ]]
-  layout = {
-    height = { min = 4, max = 25 },
-    width = { min = 20, max = 50 },
-    spacing = 3,
-    align = "left",
-  },
-  -- hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " },
-  show_help = true,
-  -- triggers = "auto",
-  --[[ triggers_blacklist = {
-    i = { "j", "k" },
-    v = { "j", "k" },
-  }, ]]
+	plugins = {
+		marks = true,
+		registers = true,
+		spelling = {
+			enabled = true,
+			suggestions = 20,
+		},
+		presets = {
+			operators = false,
+			motions = true,
+			text_objects = true,
+			windows = true,
+			nav = true,
+			z = true,
+			g = true,
+		},
+	},
+	preset = "modern",
+	icons = {
+		breadcrumb = "»",
+		separator = "──",
+		group = "+",
+	},
+	mappings = {
+		["f"] = { name = "+Files" },
+		["w"] = { name = "+Window" },
+		["/"] = { name = "+Search" },
+		["g"] = { name = "+Git" },
+		["l"] = { name = "+LSP" },
+	},
+	layout = {
+		height = { min = 4, max = 25 },
+		width = { min = 20, max = 50 },
+		spacing = 3,
+		align = "left",
+	},
+	show_help = true,
 }
 
 local mappings = {
-    { "<leader>A", ":Alpha<CR>", desc = "Alpha", nowait = true, remap = false },
-    { "<leader>H", "<cmd>nohlsearch<cr>", desc = "No Highlight", nowait = true, remap = false },
-    { "<leader>P", "<cmd>lua require('telescope').extensions.projects.projects()<cr>", desc = "Projects", nowait = true, remap = false },
-    { "<leader>q", "<cmd>lua my_quit()<CR>", desc = "Quit", nowait = true, remap = false },
+	{
+		"<leader>A",
+		":Alpha<CR>",
+		desc = "Alpha",
+		nowait = true,
+		remap = false,
+	},
+	{
+		"<leader>H",
+		"<cmd>nohlsearch<cr>",
+		desc = "No Highlight",
+		nowait = true,
+		remap = false,
+	},
+	{
+		"<leader>P",
+		"<cmd>lua require('telescope').extensions.projects.projects()<cr>",
+		desc = "Projects",
+		nowait = true,
+		remap = false,
+	},
+	{
+		"<leader>q",
+		"<cmd>lua my_quit()<CR>",
+		desc = "Quit",
+		nowait = true,
+		remap = false,
+	},
 }
 
 which_key.setup(setup)
 which_key.add(mappings)
-
-
 
 require("bindings.C_chatgpt").setup()
 require("bindings.S_session").setup()

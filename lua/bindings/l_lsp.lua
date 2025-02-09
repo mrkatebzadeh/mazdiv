@@ -28,7 +28,7 @@ L_LSP.setup = function()
       { "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<cr>", desc = "Quickfix", nowait = true, remap = false },
       { "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", desc = "Rename", nowait = true, remap = false },
       { "<leader>ls", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Document Symbols", nowait = true, remap = false },
-      { "<leader>lt", ":TroubleToggle<CR>", desc = "Trouble", nowait = true, remap = false },
+      { "<leader>lt", "<cmd>Trouble diagnostics toggle<cr>", desc = "Trouble", nowait = true, remap = false },
       { "<leader>lw", "<cmd>Telescope diagnostics<cr>", desc = "Workspace Diagnostics", nowait = true, remap = false },
     },
   }
