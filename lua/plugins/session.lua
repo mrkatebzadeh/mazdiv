@@ -1,6 +1,6 @@
 return {
 	{
-    enabled = false,
+    enabled = true,
 		"Shatur/neovim-session-manager",
 		config = function()
 			local Path = require("plenary.path")
