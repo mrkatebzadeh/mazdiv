@@ -162,4 +162,7 @@ return {
 			require("marks").setup({})
 		end,
 	},
+	{
+		"RRethy/vim-illuminate",
+	},
 }

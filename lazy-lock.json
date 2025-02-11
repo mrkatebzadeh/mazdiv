@@ -96,7 +96,7 @@
   "trouble.nvim": { "branch": "main", "commit": "bac1d9a9f51eecf4424b6ca8675db5a170fe572b" },
   "vim-fugitive": { "branch": "master", "commit": "b068eaf1e6cbe35d1ac100d435cd7f7b74a5c87d" },
   "vim-headerguard": { "branch": "main", "commit": "8987a70ad416414ce5c570842c392111abd10555" },
-  "vim-illuminate": { "branch": "master", "commit": "5eeb7951fc630682c322e88a9bbdae5c224ff0aa" },
+  "vim-illuminate": { "branch": "master", "commit": "b5713e6ca3f627b46968386d6d3f24d374d3cb17" },
   "vimtex": { "branch": "master", "commit": "3c55cc050713952e611c081a0a0bfe04671a5b8a" },
   "volt": { "branch": "main", "commit": "3bedb1576db574af160643eea7df3b09dbe5ee9c" },
   "which-key.nvim": { "branch": "main", "commit": "0e76a87ac51772569aec678dc74baa8e2a86100c" },

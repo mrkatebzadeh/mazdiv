@@ -12,6 +12,8 @@ local default_path = vim.fn.expand("~")
 vim.api.nvim_set_current_dir(default_path)
 vim.o.guifont = "FiraCode Nerd Font Propo:h12"
 
+vim.env.PATH = vim.env.PATH .. ':' .. vim.fn.expand("~/.nix-profile/bin")
+
 vim.api.nvim_set_keymap('', '<D-v>', '+p<CR>', { noremap = true, silent = true})
 vim.api.nvim_set_keymap('!', '<D-v>', '<C-R>+', { noremap = true, silent = true})
 vim.api.nvim_set_keymap('t', '<D-v>', '<C-R>+', { noremap = true, silent = true})
