@@ -52,6 +52,11 @@ return {
         ft = "qf",
         title = "QuickFix",
       },
+      "trouble",
+      {
+        ft = "qf",
+        title = "QuickFix",
+      },
       {
         ft = "help",
         title = "Help",
