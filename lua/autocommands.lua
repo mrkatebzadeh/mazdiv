@@ -6,69 +6,6 @@ vim.api.nvim_create_autocmd("BufEnter", {
   end,
 })
 
-vim.api.nvim_create_autocmd("LspAttach", {
-  group = vim.api.nvim_create_augroup("UserLspConfig", {}),
-  callback = function(ev)
-    local bufnr = ev.buf
-    local client = vim.lsp.get_client_by_id(ev.data.client_id)
-
-    vim.cmd.setlocal("signcolumn=yes")
-    vim.bo[bufnr].bufhidden = "hide"
-
-    -- Enable completion triggered by <c-x><c-o>
-    vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
-
-    if client.server_capabilities.inlayHintProvider then
-      vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
-      local wk = require("which-key")
-      wk.add({
-        {
-          "<leader>oh",
-          function()
-            local current_setting = vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr })
-            vim.lsp.inlay_hint.enable(not current_setting, { bufnr = bufnr })
-          end,
-          desc = "Toggle Inlay Hints",
-          nowait = true,
-          remap = false,
-        },
-      })
-    end
-
-    -- Auto-refresh code lenses
-    if not client then
-      return
-    end
-
-    --[[ if not vim.tbl_contains({ "null-ls" }, client.name) then
-      require("lsp_signature").on_attach({
-        bind = true,
-        handler_opts = {
-          border = "rounded",
-        },
-      }, bufnr)
-    end ]]
-
-    local function buf_refresh_codeLens()
-      vim.schedule(function()
-        if client.server_capabilities.codeLensProvider then
-          vim.lsp.codelens.refresh()
-          return
-        end
-      end)
-    end
-    local group = vim.api.nvim_create_augroup(string.format("lsp-%s-%s", bufnr, client.id), {})
-    if client.server_capabilities.codeLensProvider then
-      vim.api.nvim_create_autocmd({ "InsertLeave", "BufWritePost", "TextChanged" }, {
-        group = group,
-        callback = buf_refresh_codeLens,
-        buffer = bufnr,
-      })
-      buf_refresh_codeLens()
-    end
-  end,
-})
-
 local ns = vim.api.nvim_create_namespace("CurlineDiag")
 vim.opt.updatetime = 100
 vim.api.nvim_create_autocmd("LspAttach", {

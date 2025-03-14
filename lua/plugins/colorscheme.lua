@@ -65,22 +65,32 @@ return {
     "panghu-huang/theme-picker.nvim",
     lazy = false,
     opts = {
-      -- Options passed to Telescope
       picker = {
         layout_config = {
           width = 0.35,
           height = 0.5,
         },
-        -- ...
       },
       themes = {
         {
-          name = "Doom",
-          colorscheme = "catppuccin",
+          name = "Frappe",
+          colorscheme = "catppuccin-frappe",
         },
         {
           name = "Neofusion",
           colorscheme = "neofusion",
+        },
+        {
+          name = "Elflord",
+          colorscheme = "elflord",
+        },
+        {
+          name = "Retrobox",
+          colorscheme = "retrobox",
+        },
+        {
+          name = "Pablo",
+          colorscheme = "pablo",
         },
       },
     },
