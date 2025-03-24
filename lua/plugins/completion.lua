@@ -1,7 +1,5 @@
 return {
-  {
-    "hrsh7th/cmp-nvim-lsp",
-  },
+  { "hrsh7th/cmp-nvim-lsp" },
   { "hrsh7th/cmp-path" },
   { "hrsh7th/cmp-cmdline" },
   {
@@ -14,6 +12,9 @@ return {
   {
     "hrsh7th/nvim-cmp",
     tag = "v0.0.2",
+    dependencies = {
+      "onsails/lspkind.nvim",
+    },
     config = function()
       local cmp = require("cmp")
       require("luasnip.loaders.from_vscode").lazy_load()
@@ -122,7 +123,7 @@ return {
         },
         formatting = {
           format = require("lspkind").cmp_format({
-            mode = "symbol",
+            mode = "symbol_text",
             max_width = 50,
             symbol_map = { Copilot = "" },
           }),
@@ -201,18 +202,12 @@ return {
             fallback() -- if not exited early, always fallback
           end),
         }),
-        --[[	mapping = cmp.mapping.preset.insert({
-					["<C-b>"] = cmp.mapping.scroll_docs(-4),
-					["<C-f>"] = cmp.mapping.scroll_docs(4),
-					["<C-Space>"] = cmp.mapping.complete(),
-					["<C-e>"] = cmp.mapping.abort(),
-					["<CR>"] = cmp.mapping.confirm({ select = true }),
-				}), ]]
+
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
           { name = "neorg" },
           { name = "copilot", group_index = 2 },
-          { name = "luasnip" }, -- For luasnip users.
+          { name = "luasnip" },
         }, {
           { name = "buffer" },
         }),
@@ -240,6 +235,7 @@ return {
           all = true,
           lua = true,
           cpp = true,
+          rust = true,
           asm = true,
           cmake = true,
           markdown = true,
