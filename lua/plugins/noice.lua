@@ -53,7 +53,7 @@ return {
 		local cmdline_opts = {
 			border = {
 				style = "rounded",
-				padding = { 1, 2 },
+				padding = { 1, 1 },
 				text = { top = "" },
 			},
 		}
