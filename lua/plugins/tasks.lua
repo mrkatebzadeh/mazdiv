@@ -1,5 +1,6 @@
 return {
-  "https://github.com/Shatur/neovim-tasks",
+  "Shatur/neovim-tasks",
+  commit = "39b8218",
   dependencies = { "nvim-lua/plenary.nvim", "mfussenegger/nvim-dap" },
   config = function()
     local Path = require("plenary.path")
