@@ -32,6 +32,7 @@ return {
     opts = {},
   },
   {
+    -- Visual Studio Code inspired breadcrumbs plugin for the Neovim editor
     "utilyre/barbecue.nvim",
     version = "v1.*",
     lazy = true,
@@ -55,9 +56,9 @@ return {
     end,
   },
   {
+    -- The fastest Neovim colorizer.
     "norcalli/nvim-colorizer.lua",
   },
-  { "onsails/lspkind.nvim" },
   {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
@@ -86,15 +87,15 @@ return {
       require("ibl").setup({
         indent = {
           -- highlight = highlight,
-          char = "|",
-          -- char = "│"
+          -- char = "|",
+          char = "│",
         },
       })
     end,
   },
   {
     "kylechui/nvim-surround",
-    version = "*",
+    version = "3.1.0",
     event = "VeryLazy",
     config = function()
       require("nvim-surround").setup({})
@@ -102,6 +103,7 @@ return {
   },
   {
     "folke/todo-comments.nvim",
+    version = "1.4.0",
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {},
   },
@@ -110,7 +112,7 @@ return {
     dependencies = {
       {
         "nvim-telescope/telescope.nvim",
-        dependencies = { "nvim-lua/plenary.nvim" },
+        "nvim-lua/plenary.nvim",
       },
     },
     opts = {
@@ -124,6 +126,7 @@ return {
     end,
   },
   {
+    -- A snazzy bufferline for Neovim
     "akinsho/bufferline.nvim",
     enabled = true,
     version = "v4.9.1",
@@ -155,6 +158,7 @@ return {
     end,
   },
   {
+    -- Decorate scrollbar for Neovim
     "lewis6991/satellite.nvim",
     tag = "v1.0.0",
     config = function()
@@ -167,8 +171,5 @@ return {
     config = function()
       require("marks").setup({})
     end,
-  },
-  {
-    "RRethy/vim-illuminate",
   },
 }
