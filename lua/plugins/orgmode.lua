@@ -63,11 +63,11 @@ return {
   },
   {
     "chipsenkbeil/org-roam.nvim",
-    tag = "0.1.0",
+    tag = "0.1.1",
     dependencies = {
       {
         "nvim-orgmode/orgmode",
-        tag = "0.3.4",
+        tag = "0.5.3",
       },
     },
     config = function()

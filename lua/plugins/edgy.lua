@@ -9,18 +9,6 @@ return {
   opts = {
     animate = {
       enabled = false,
-      fps = 100,
-      cps = 120,
-      on_begin = function()
-        vim.g.minianimate_disable = true
-      end,
-      on_end = function()
-        vim.g.minianimate_disable = false
-      end,
-      spinner = {
-        frames = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" },
-        interval = 80,
-      },
     },
     bottom = {
       {
