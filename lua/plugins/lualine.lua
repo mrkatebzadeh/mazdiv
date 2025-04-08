@@ -3,7 +3,7 @@ return {
   dependencies = { "nvim-tree/nvim-web-devicons", "SmiteshP/nvim-navic" },
   config = function()
     local function get_attached_clients()
-      local buf_clients = vim.lsp.get_active_clients({ bufnr = 0 })
+      local buf_clients = vim.lsp.get_clients({ bufnr = 0 })
       if #buf_clients == 0 then
         return "LSP Inactive"
       end
@@ -18,10 +18,6 @@ return {
         end
       end
 
-      -- Generally, you should use either null-ls or nvim-lint + formatter.nvim, not both.
-
-      -- Add sources (from null-ls)
-      -- null-ls registers each source as a separate attached client, so we need to filter for unique names down below.
       local null_ls_s, null_ls = pcall(require, "null-ls")
       if null_ls_s then
         local sources = null_ls.get_sources()
@@ -36,7 +32,6 @@ return {
         end
       end
 
-      -- Add linters (from nvim-lint)
       local lint_s, lint = pcall(require, "lint")
       if lint_s then
         for ft_k, ft_v in pairs(lint.linters_by_ft) do
@@ -54,7 +49,6 @@ return {
         end
       end
 
-      -- Add formatters (from formatter.nvim)
       local formatter_s, _ = pcall(require, "formatter")
       if formatter_s then
         local formatter_util = require("formatter.util")
@@ -65,7 +59,6 @@ return {
         end
       end
 
-      -- This needs to be a string only table so we can use concat below
       local unique_client_names = {}
       for _, client_name_target in ipairs(buf_client_names) do
         local is_duplicate = false
