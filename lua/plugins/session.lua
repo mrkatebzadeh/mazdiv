@@ -1,6 +1,6 @@
 return {
 	{
-    enabled = true,
+		enabled = false,
 		"Shatur/neovim-session-manager",
 		config = function()
 			local Path = require("plenary.path")
@@ -35,5 +35,13 @@ return {
 				max_path_length = 80,
 			})
 		end,
+	},
+	{
+		{
+			"folke/persistence.nvim",
+			event = "BufReadPre",
+			opts = {
+			},
+		},
 	},
 }

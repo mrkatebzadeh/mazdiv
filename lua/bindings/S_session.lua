@@ -10,9 +10,9 @@ S_SESSION.setup = function()
     {
       mode = { "v", "n" },
       { "<leader>S", group = "Session", nowait = true, remap = false },
-      { "<leader>Sd", "<cmd>SessionManager delete_session<cr>", desc = "Delete Session", nowait = true, remap = false },
-      { "<leader>Sl", "<cmd>SessionManager load_session<cr>", desc = "Load Session", nowait = true, remap = false },
-      { "<leader>Ss", "<cmd>SessionManager save_current_session <cr>", desc = "Save Session", nowait = true, remap = false },
+      { "<leader>Sl", '<CMD>lua require("persistence").load()<CR>', desc = "Load Session", nowait = true, remap = false },
+      { "<leader>Ss", '<CMD>lua require("persistence").select() <CR>', desc = "Select Session", nowait = true, remap = false },
+      { "<leader>SL", '<CMD>lua require("persistence").load({ last = true }) <CR>', desc = "Last Session", nowait = true, remap = false },
     },
   }
 
