@@ -8,6 +8,7 @@ return {
         ["*.c"] = "c.skel",
         ["*.h"] = "h.skel",
         ["*.rs"] = "rs.skel",
+        ["*.lua"] = "lua.skel",
         -- patterns can map to multiple templates
         ["LICENSE"] = { "license.mit.skel", "license.gpl.skel" },
       },
