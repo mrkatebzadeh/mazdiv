@@ -7,17 +7,28 @@ O_ORG.setup = function()
 	end
 
 	local mappings = {
-    {
-      mode = { "v", "n" },
-      { "<leader>o", group = "Org", nowait = true, remap = false },
-      { "<leader>or", group = "Roam", nowait = true, remap = false },
-      { "<leader>orf", "<cmd>lua require('org-roam').api.find_node()<cr>", desc = "Find Node", nowait = true, remap = false },
-      { "<leader>ori", "<cmd>lua require('org-roam').api.insert_node()<cr>", desc = "Find Node", nowait = true, remap = false },
-    },
-  }
+		{
+			mode = { "v", "n" },
+			{ "<leader>o", group = "Org", nowait = true, remap = false },
+			{ "<leader>or", group = "Roam", nowait = true, remap = false },
+			{
+				"<leader>orf",
+				"<CMD>lua require('org-roam').api.find_node()<CR>",
+				desc = "Find Node",
+				nowait = true,
+				remap = false,
+			},
+			{
+				"<leader>ori",
+				"<CMD>lua require('org-roam').api.insert_node()<CR>",
+				desc = "Find Node",
+				nowait = true,
+				remap = false,
+			},
+		},
+	}
 
 	which_key.add(mappings)
-
 end
 
 return O_ORG
