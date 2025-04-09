@@ -7,7 +7,7 @@ return {
 	},
 	keys = {
 		{
-			"<leader>p",
+			"<leader>yp",
 			function()
 				require("telescope").extensions.yank_history.yank_history({})
 			end,

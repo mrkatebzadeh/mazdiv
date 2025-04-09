@@ -76,7 +76,7 @@ local mappings = {
 		remap = false,
 	},
 	{
-		"<leader>P",
+		"<leader>p",
 		"<cmd>lua require('telescope').extensions.projects.projects()<cr>",
 		desc = "Projects",
 		nowait = true,

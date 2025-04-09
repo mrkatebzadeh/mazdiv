@@ -77,9 +77,7 @@ F_FILES.setup = function()
       },
       {
         "<leader>fn",
-        function()
-          vim.api.nvim_feedkeys(":Telescope fd cwd=" .. vim.fn.getcwd(), "n", false)
-        end,
+        "<CMD>FindFilesCwd<CR>",
         desc = "File Browser",
         nowait = true,
         remap = false,
