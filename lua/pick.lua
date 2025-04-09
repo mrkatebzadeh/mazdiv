@@ -55,7 +55,7 @@ require("telescope").setup({
                 -- Otherwise, open the file
                 vim.cmd("edit " .. path)
                 -- Update Neo-tree root to the directory of the opened file
-                vim.cmd("Neotree reveal " .. vim.fn.fnamemodify(path, ":h"))
+                vim.cmd("Neotree reveal dir=" .. vim.fn.fnamemodify(path, ":h"))
               end
             end
           end,

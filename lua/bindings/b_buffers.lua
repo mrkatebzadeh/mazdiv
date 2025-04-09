@@ -27,7 +27,7 @@ B_BUFFERS.setup = function()
       mode = { "v", "n" },
       { "<leader>b", group = "Buffers", nowait = true, remap = false },
       { "<leader>bb", "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>", desc = "List Buffers", nowait = true, remap = false },
-      { "<leader>bd", "<cmd>bp | bd #<cr>", desc = "Close Buffer", nowait = true, remap = false },
+      { "<leader>bd", "<cmd>CloseBuffer<cr>", desc = "Close Buffer", nowait = true, remap = false },
       { "<leader>bh", "<cmd>lua require('harpoon.mark').add_file()<cr>", desc = "Harpoon Add Buffer", nowait = true, remap = false },
       { "<leader>bl", "<cmd>Telescope harpoon marks<cr>", desc = "Harpoon List Files", nowait = true, remap = false },
       { "<leader>bo", '<cmd>%bdelete|edit #|normal`"<CR>', desc = "Delete Others", nowait = true, remap = false },
