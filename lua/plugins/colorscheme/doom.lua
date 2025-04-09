@@ -23,6 +23,7 @@ return {
   name = "doom",
   lazy = false,
   priority = 1000,
+  enabled = false,
   config = function()
     require("doom").setup()
   end,

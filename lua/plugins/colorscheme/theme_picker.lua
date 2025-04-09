@@ -53,10 +53,10 @@ return {
         name = "Pablo",
         colorscheme = "pablo",
       },
-      {
-        name = "Doom",
-        colorscheme = "doom",
-      },
+      -- {
+      --   name = "Doom",
+      --   colorscheme = "doom",
+      -- },
     },
   },
 }
