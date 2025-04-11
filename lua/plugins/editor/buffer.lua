@@ -1,4 +1,4 @@
---[[ nonels.lua
+--[[ buffer.lua
 
 Author: M.R. Siavash Katebzadeh <mr@katebzadeh.xyz>
 Keywords: Lua, Neovim
@@ -19,25 +19,43 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 return {
-	"nvimtools/none-ls.nvim",
-	config = function()
-		local null_ls = require("null-ls")
-		null_ls.setup({
-			sources = {
-				null_ls.builtins.formatting.stylua,
-				null_ls.builtins.formatting.prettier,
-				null_ls.builtins.diagnostics.erb_lint,
-				-- null_ls.builtins.diagnostics.eslint_d,
-				null_ls.builtins.diagnostics.rubocop,
-				null_ls.builtins.formatting.rubocop,
-				-- null_ls.builtins.code_actions.shellcheck,
-				-- null_ls.builtins.diagnostics.shellcheck,
-				null_ls.builtins.formatting.shfmt,
-				null_ls.builtins.formatting.nixpkgs_fmt,
-				-- null_ls.builtins.formatting.jsonnetfmt,
-			},
-		})
-	end,
+	{
+		"danilamihailov/beacon.nvim",
+		version = "2.0.0",
+
+		config = function()
+			require("beacon").setup({})
+		end,
+	},
+	{
+		"cappyzawa/trim.nvim",
+		opts = {},
+	},
+	{
+		"hedyhli/outline.nvim",
+		config = function()
+			require("outline").setup({})
+		end,
+	},
+	{
+		-- The fastest Neovim colorizer.
+		"norcalli/nvim-colorizer.lua",
+	},
+	{
+		"chentoast/marks.nvim",
+		commit = "74e8d01",
+		config = function()
+			require("marks").setup({})
+		end,
+	},
+	{
+		"kylechui/nvim-surround",
+		version = "3.1.0",
+		event = "VeryLazy",
+		config = function()
+			require("nvim-surround").setup({})
+		end,
+	},
 }
 
---[[ nonels.lua ends here. ]]
+--[[ buffer.lua ends here. ]]

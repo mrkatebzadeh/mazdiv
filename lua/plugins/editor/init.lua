@@ -19,6 +19,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 return {
+	{ import = "plugins.editor.buffer" },
 	{ import = "plugins.editor.autopairs" },
 	{ import = "plugins.editor.barbecue" },
 	{ import = "plugins.editor.bqf" },
@@ -42,36 +43,6 @@ return {
 	{ import = "plugins.editor.whichkey" },
 	{ import = "plugins.editor.yanky" },
 	{ import = "plugins.editor.zen" },
-
-	{
-		"cappyzawa/trim.nvim",
-		opts = {},
-	},
-	{
-		"hedyhli/outline.nvim",
-		config = function()
-			require("outline").setup({})
-		end,
-	},
-	{
-		-- The fastest Neovim colorizer.
-		"norcalli/nvim-colorizer.lua",
-	},
-	{
-		"chentoast/marks.nvim",
-		commit = "74e8d01",
-		config = function()
-			require("marks").setup({})
-		end,
-	},
-	{
-		"kylechui/nvim-surround",
-		version = "3.1.0",
-		event = "VeryLazy",
-		config = function()
-			require("nvim-surround").setup({})
-		end,
-	},
 }
 
 --[[ init.lua ends here. ]]
