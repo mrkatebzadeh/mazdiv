@@ -89,6 +89,13 @@ local mappings = {
 		nowait = true,
 		remap = false,
 	},
+	{
+		"<leader>x",
+		"<CMD>Telescope commands<CR>",
+		desc = "M-x",
+		nowait = true,
+		remap = false,
+	},
 }
 
 which_key.setup(setup)
