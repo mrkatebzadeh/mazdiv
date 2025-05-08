@@ -29,6 +29,4 @@ require("lazy").setup("plugins", {
   },
 })
 require("bindings")
-require("pick")
-
 require("core")
