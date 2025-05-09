@@ -21,7 +21,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 require("core.options")
 require("core.fold")
 require("core.autocommands")
-require("core.neovide")
 require("core.utils")
 
 if vim.g.neovide then
