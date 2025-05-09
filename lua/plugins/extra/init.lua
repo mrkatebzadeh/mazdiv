@@ -32,5 +32,6 @@ return {
 	{ import = "plugins.extra.orgmode" },
 	{ import = "plugins.extra.sync" },
 	{ import = "plugins.extra.terminal" },
+	{ import = "plugins.extra.obsidian" },
 }
 --[[ init.lua ends here. ]]
