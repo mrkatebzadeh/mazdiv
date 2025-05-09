@@ -41,7 +41,7 @@ O_ORG.setup = function()
       {
         "<leader>os",
         "<CMD>ObsidianSearch<CR>",
-        desc = "Open in Obsidian",
+        desc = "Search",
         nowait = true,
         remap = false,
       },
@@ -49,6 +49,13 @@ O_ORG.setup = function()
         "<leader>oo",
         "<CMD>ObsidianOpen<CR>",
         desc = "Open in Obsidian",
+        nowait = true,
+        remap = false,
+      },
+      {
+        "<leader>ol",
+        "<CMD>ObsidianLinks<CR>",
+        desc = "Links",
         nowait = true,
         remap = false,
       },
