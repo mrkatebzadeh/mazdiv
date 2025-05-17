@@ -30,7 +30,7 @@ return {
     workspaces = {
       {
         name = "personal",
-        path = "~/Nextcloud/obsidian/Maghz",
+        path = "~/Obsidian/Maghz",
       },
     },
 
@@ -38,15 +38,12 @@ return {
     ---@param title string|?
     ---@return string
     note_id_func = function(title)
-      -- Generate a note ID in the format TIMESTAMP_kebab-title
       local timestamp = tostring(os.time())
       local suffix = ""
 
       if title ~= nil then
-        -- Convert title to kebab-case: lowercase, hyphens instead of spaces, and remove special characters
         suffix = title:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", ""):lower()
       else
-        -- If title is nil, generate a 4-letter random fallback
         for _ = 1, 4 do
           suffix = suffix .. string.char(math.random(65, 90))
         end
@@ -58,7 +55,6 @@ return {
     ---@param spec { id: string, dir: obsidian.Path, title: string|? }
     ---@return string|obsidian.Path The full path to the new note.
     note_path_func = function(spec)
-      -- Remove TIMESTAMP_ from the ID
       local cleaned_id = spec.id:match("^[^_]+_(.+)$") or spec.id
       local path = spec.dir / cleaned_id
       return path:with_suffix(".md")
