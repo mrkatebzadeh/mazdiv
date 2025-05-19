@@ -13,7 +13,19 @@ vim.cmd([[
 vim.o.number = true
 vim.o.relativenumber = true
 
-vim.api.nvim_set_option("clipboard", "unnamedplus")
+vim.opt.clipboard = "unnamedplus"
+
+-- Normal mode
+vim.keymap.set("n", "yy", '"+yy')
+vim.keymap.set("n", "dd", '"+dd')
+vim.keymap.set("n", "p", '"+p')
+vim.keymap.set("n", "P", '"+P')
+
+-- Visual mode
+vim.keymap.set("v", "y", '"+y')
+vim.keymap.set("v", "d", '"+d')
+vim.keymap.set("v", "p", '"+p')
+
 vim.api.nvim_set_keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })
 vim.g.mapleader = " "
 vim.opt.swapfile = false
