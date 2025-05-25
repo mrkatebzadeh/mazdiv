@@ -27,7 +27,7 @@ return {
   config = function()
     require("catppuccin").setup({
       flavour = "frappe",
-      transparent_background = false,
+      transparent_background = true,
       styles = {
         comments = { "italic" },
       },
