@@ -56,7 +56,9 @@ G_GIT.setup = function()
 			},
 			{
 				"<leader>gg",
-				"<CMD>LazyGit<CR>",
+				function()
+					Snacks.lazygit()
+				end,
 				desc = "Lazygit",
 				nowait = true,
 				remap = false,
@@ -77,7 +79,9 @@ G_GIT.setup = function()
 			},
 			{
 				"<leader>gB",
-				"<CMD>lua require 'gitsigns'.blame_line()<CR>",
+				function()
+					Snacks.git.blame_line()
+				end,
 				desc = "Blame",
 				nowait = true,
 				remap = false,
