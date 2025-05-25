@@ -27,7 +27,6 @@ vim.keymap.set("v", "d", '"+d')
 vim.keymap.set("v", "p", '"+p')
 
 vim.api.nvim_set_keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })
-vim.g.mapleader = " "
 vim.opt.swapfile = false
 
 -- Navigate vim panes better
