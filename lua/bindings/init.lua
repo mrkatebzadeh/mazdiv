@@ -77,7 +77,7 @@ local mappings = {
 	},
 	{
 		"<leader>p",
-		"<CMD>lua require('telescope').extensions.projects.projects()<CR>",
+		"<CMD>lua Snacks.picker.projects()<CR>",
 		desc = "Projects",
 		nowait = true,
 		remap = false,
@@ -91,7 +91,9 @@ local mappings = {
 	},
 	{
 		"<leader>x",
-		"<CMD>Telescope commands<CR>",
+		function()
+			Snacks.picker.commands()
+		end,
 		desc = "M-x",
 		nowait = true,
 		remap = false,

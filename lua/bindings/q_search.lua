@@ -17,21 +17,27 @@ Q_SEARCH.setup = function()
 			},
 			{
 				"<leader>?C",
-				"<CMD>Telescope commands<CR>",
+				function()
+					Snacks.picker.commands()
+				end,
 				desc = "Commands",
 				nowait = true,
 				remap = false,
 			},
 			{
 				"<leader>?M",
-				"<CMD>Telescope man_pages<CR>",
+				function()
+					Snacks.picker.man()
+				end,
 				desc = "Man Pages",
 				nowait = true,
 				remap = false,
 			},
 			{
 				"<leader>?R",
-				"<CMD>Telescope registers<CR>",
+				function()
+					Snacks.picker.registers()
+				end,
 				desc = "Registers",
 				nowait = true,
 				remap = false,
@@ -45,36 +51,37 @@ Q_SEARCH.setup = function()
 			},
 			{
 				"<leader>?c",
-				"<CMD>Telescope colorscheme<CR>",
+				function()
+					Snacks.picker.colorschemes()
+				end,
 				desc = "Colorscheme",
 				nowait = true,
 				remap = false,
 			},
 			{
 				"<leader>?f",
-				"<CMD>lua require('spectre').open_file_search()<CR>",
+				function()
+					require("spectre").open_file_search()
+				end,
 				desc = "Replace Buffer",
 				nowait = true,
 				remap = false,
 			},
 			{
 				"<leader>?h",
-				"<CMD>Telescope help_tags<CR>",
+				function()
+					Snacks.picker.help()
+				end,
 				desc = "Find Help",
 				nowait = true,
 				remap = false,
 			},
 			{
 				"<leader>?k",
-				"<CMD>Telescope keymaps<CR>",
+				function()
+					Snacks.picker.keymaps()
+				end,
 				desc = "Keymaps",
-				nowait = true,
-				remap = false,
-			},
-			{
-				"<leader>?r",
-				"<CMD>lua require('spectre').open()<CR>",
-				desc = "Replace",
 				nowait = true,
 				remap = false,
 			},
@@ -82,13 +89,6 @@ Q_SEARCH.setup = function()
 				"<leader>?s",
 				"<Plug>(leap-forward)",
 				desc = "Search Forward Leap",
-				nowait = true,
-				remap = false,
-			},
-			{
-				"<leader>?w",
-				"<CMD>lua require('spectre').open_visual({select_word=true})<CR>",
-				desc = "Replace Word",
 				nowait = true,
 				remap = false,
 			},

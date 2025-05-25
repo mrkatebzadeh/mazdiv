@@ -19,47 +19,56 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 return {
-  "epwalsh/obsidian.nvim",
-  version = "v.3.9.0",
-  -- ft = "markdown",
-  dependencies = {
-    "nvim-lua/plenary.nvim",
-    "nvim-telescope/telescope.nvim",
-  },
-  opts = {
-    workspaces = {
-      {
-        name = "personal",
-        path = "~/Obsidian/Maghz",
-      },
-    },
+	"obsidian-nvim/obsidian.nvim",
+	version = "v.3.11.0",
 
-    preferred_link_style = "markdown",
-    ---@param title string|?
-    ---@return string
-    note_id_func = function(title)
-      local timestamp = tostring(os.time())
-      local suffix = ""
+	-- ft = "markdown",
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+	},
+	cmd = { "Obsidian" },
+	opts = {
+		completion = {
+			nvim_cmp = false,
+			blink = true,
+			min_chars = 2,
+		},
+		picker = {
+			name = "snacks.pick",
+		},
+		workspaces = {
+			{
+				name = "personal",
+				path = "~/Obsidian/Maghz",
+			},
+		},
 
-      if title ~= nil then
-        suffix = title:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", ""):lower()
-      else
-        for _ = 1, 4 do
-          suffix = suffix .. string.char(math.random(65, 90))
-        end
-      end
+		preferred_link_style = "markdown",
+		---@param title string|?
+		---@return string
+		note_id_func = function(title)
+			local timestamp = tostring(os.time())
+			local suffix = ""
 
-      return timestamp .. "_" .. suffix
-    end,
+			if title ~= nil then
+				suffix = title:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", ""):lower()
+			else
+				for _ = 1, 4 do
+					suffix = suffix .. string.char(math.random(65, 90))
+				end
+			end
 
-    ---@param spec { id: string, dir: obsidian.Path, title: string|? }
-    ---@return string|obsidian.Path The full path to the new note.
-    note_path_func = function(spec)
-      local cleaned_id = spec.id:match("^[^_]+_(.+)$") or spec.id
-      local path = spec.dir / cleaned_id
-      return path:with_suffix(".md")
-    end,
-  },
+			return timestamp .. "_" .. suffix
+		end,
+
+		---@param spec { id: string, dir: obsidian.Path, title: string|? }
+		---@return string|obsidian.Path The full path to the new note.
+		note_path_func = function(spec)
+			local cleaned_id = spec.id:match("^[^_]+_(.+)$") or spec.id
+			local path = spec.dir / cleaned_id
+			return path:with_suffix(".md")
+		end,
+	},
 }
 
 --[[ obsidian.lua ends here. ]]

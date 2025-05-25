@@ -23,10 +23,8 @@ return {
 	{ import = "plugins.ui.fidget" },
 	{ import = "plugins.ui.goto" },
 	{ import = "plugins.ui.menu" },
-	{ import = "plugins.ui.neotree" },
 	{ import = "plugins.ui.noice" },
-	{ import = "plugins.ui.notify" },
-	{ import = "plugins.ui.telescope" },
+	{ import = "plugins.ui.snacks" },
 }
 
 --[[ init.lua ends here. ]]

@@ -1,5 +1,7 @@
 return {
 	"gbprod/yanky.nvim",
+  version = "2.0.0",
+  dependencies = { "folke/snacks.nvim" },
 	recommended = true,
 	desc = "Better Yank/Paste",
 	opts = {
@@ -9,7 +11,7 @@ return {
 		{
 			"<leader>yp",
 			function()
-				require("telescope").extensions.yank_history.yank_history({})
+				Snacks.picker.yanky()
 			end,
 			mode = { "n", "x" },
 			desc = "Open Yank History",

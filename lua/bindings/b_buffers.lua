@@ -33,7 +33,9 @@ B_BUFFERS.setup = function()
 			},
 			{
 				"<leader>bb",
-				"<CMD>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<CR>",
+				function()
+					Snacks.picker.buffers()
+				end,
 				desc = "List Buffers",
 				nowait = true,
 				remap = false,
@@ -46,20 +48,6 @@ B_BUFFERS.setup = function()
 				remap = false,
 			},
 			{
-				"<leader>bh",
-				"<CMD>lua require('harpoon.mark').add_file()<CR>",
-				desc = "Harpoon Add Buffer",
-				nowait = true,
-				remap = false,
-			},
-			{
-				"<leader>bl",
-				"<CMD>Telescope harpoon marks<CR>",
-				desc = "Harpoon List Files",
-				nowait = true,
-				remap = false,
-			},
-			{
 				"<leader>bo",
 				'<CMD>%bdelete|edit #|normal`"<CR>',
 				desc = "Delete Others",
@@ -68,7 +56,9 @@ B_BUFFERS.setup = function()
 			},
 			{
 				"<leader>bt",
-				"<CMD>lua toggle_qf()<CR>",
+				function()
+					toggle_qf()
+				end,
 				desc = "Toggle Quickfix",
 				nowait = true,
 				remap = false,

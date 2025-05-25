@@ -17,7 +17,9 @@ L_LSP.setup = function()
 			},
 			{
 				"<leader>lD",
-				'<CMD>:lua vim.diagnostic.open_float({"line "})<CR>',
+				function()
+					vim.diagnostic.open_float({ "line " })
+				end,
 				desc = "Show Line diagnostics",
 				nowait = true,
 				remap = false,
@@ -38,49 +40,54 @@ L_LSP.setup = function()
 			},
 			{
 				"<leader>lS",
-				"<CMD>Telescope lsp_dynamic_workspace_symbols<CR>",
+				function()
+					Snacks.picker.lsp_workspace_symbols()
+				end,
 				desc = "Workspace Symbols",
 				nowait = true,
 				remap = false,
 			},
 			{
 				"<leader>la",
-				"<CMD>lua vim.lsp.buf.code_action()<CR>",
+				function()
+					vim.lsp.buf.code_action()
+				end,
 				desc = "Code Action",
 				nowait = true,
 				remap = false,
 			},
 			{
-				"<leader>lb",
-				"<CMD>lua require('telescope.builtin').diagnostics({bufnr=0,layout_strategy='vertical',layout_config={width=0.9, height=0.95, preview_cutoff = 0}})<CR>",
-				desc = "Buffer Diagnostics",
-				nowait = true,
-				remap = false,
-			},
-			{
 				"<leader>lc",
-				"<CMD>lua vim.lsp.codelens.refresh()<CR>",
+				function()
+					vim.lsp.codelens.refresh()
+				end,
 				desc = "Codelens Refresh",
 				nowait = true,
 				remap = false,
 			},
 			{
-				"<leader>ld",
-				"<CMD>Telescope diagnostics bufnr=0<CR>",
-				desc = "Document Diagnostics",
+				"<leader>lb",
+				function()
+					Snacks.picker.diagnostics_buffer()
+				end,
+				desc = "Buffer Diagnostics",
 				nowait = true,
 				remap = false,
 			},
 			{
 				"<leader>le",
-				"<CMD>lua require('telescope').extensions.notify.notify({bufnr=0,layout_strategy='vertical',layout_config={width=0.9, height=0.95, preview_cutoff = 0},wrap_results=true,})<CR>",
+				function()
+					Snacks.picker.notifications()
+				end,
 				desc = "Notofication History",
 				nowait = true,
 				remap = false,
 			},
 			{
 				"<leader>lf",
-				"<CMD>lua vim.lsp.buf.format{async=true}<CR>",
+				function()
+					vim.lsp.buf.format({ async = true })
+				end,
 				desc = "Format",
 				nowait = true,
 				remap = false,
@@ -101,42 +108,54 @@ L_LSP.setup = function()
 			},
 			{
 				"<leader>lj",
-				"<CMD>lua vim.lsp.diagnostic.goto_next()<CR>",
+				function()
+					vim.lsp.diagnostic.goto_next()
+				end,
 				desc = "Next Diagnostic",
 				nowait = true,
 				remap = false,
 			},
 			{
 				"<leader>lk",
-				"<CMD>lua vim.lsp.diagnostic.goto_prev()<CR>",
+				function()
+					vim.lsp.diagnostic.goto_prev()
+				end,
 				desc = "Prev Diagnostic",
 				nowait = true,
 				remap = false,
 			},
 			{
 				"<leader>ll",
-				"<CMD>lua vim.lsp.codelens.run()<CR>",
+				function()
+					vim.lsp.codelens.run()
+				end,
 				desc = "CodeLens Action",
 				nowait = true,
 				remap = false,
 			},
 			{
 				"<leader>lq",
-				"<CMD>lua vim.diagnostic.setloclist()<CR>",
+				function()
+					vim.diagnostic.setloclist()
+				end,
 				desc = "Quickfix",
 				nowait = true,
 				remap = false,
 			},
 			{
 				"<leader>lr",
-				"<CMD>lua vim.lsp.buf.rename()<CR>",
+				function()
+					vim.lsp.buf.rename()
+				end,
 				desc = "Rename",
 				nowait = true,
 				remap = false,
 			},
 			{
 				"<leader>ls",
-				"<CMD>Telescope lsp_document_symbols<CR>",
+				function()
+					Snacks.picker.lsp_symbols()
+				end,
 				desc = "Document Symbols",
 				nowait = true,
 				remap = false,
@@ -150,7 +169,9 @@ L_LSP.setup = function()
 			},
 			{
 				"<leader>lw",
-				"<CMD>Telescope diagnostics<CR>",
+				function()
+					Snacks.picker.diagnostics()
+				end,
 				desc = "Workspace Diagnostics",
 				nowait = true,
 				remap = false,

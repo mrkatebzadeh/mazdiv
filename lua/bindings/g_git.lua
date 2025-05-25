@@ -31,15 +31,19 @@ G_GIT.setup = function()
 			},
 			{
 				"<leader>gb",
-				"<CMD>Telescope git_branches<CR>",
+				function()
+					Snacks.picker.git_branches()
+				end,
 				desc = "Checkout Branch",
 				nowait = true,
 				remap = false,
 			},
 			{
-				"<leader>gc",
-				"<CMD>Telescope git_commits<CR>",
-				desc = "Checkout Commit",
+				"<leader>gl",
+				function()
+					Snacks.picker.git_log()
+				end,
+				desc = "Log",
 				nowait = true,
 				remap = false,
 			},
@@ -72,7 +76,7 @@ G_GIT.setup = function()
 				remap = false,
 			},
 			{
-				"<leader>gl",
+				"<leader>gB",
 				"<CMD>lua require 'gitsigns'.blame_line()<CR>",
 				desc = "Blame",
 				nowait = true,
@@ -80,7 +84,9 @@ G_GIT.setup = function()
 			},
 			{
 				"<leader>go",
-				"<CMD>Telescope git_status<CR>",
+				function()
+					Snacks.picker.git_status()
+				end,
 				desc = "Open Changed File",
 				nowait = true,
 				remap = false,

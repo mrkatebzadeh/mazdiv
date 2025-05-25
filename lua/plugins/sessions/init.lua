@@ -20,7 +20,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 return {
 	{ import = "plugins.sessions.persistence" },
-	{ import = "plugins.sessions.project" },
 	{ import = "plugins.sessions.session_manager" },
 }
 

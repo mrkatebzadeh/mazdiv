@@ -79,14 +79,14 @@ T_TOGGLES.setup = function()
 			},
 			{
 				"<leader>tt",
-				"<CMD>TodoTelescope<CR>",
+				function() Snacks.picker.todo_comments()end,
 				desc = "TODOs",
 				nowait = true,
 				remap = false,
 			},
 			{
 				"<leader>tu",
-				"<CMD>Telescope undo<CR>",
+				function() Snacks.picker.undo()end,
 				desc = "Undo",
 				nowait = true,
 				remap = false,

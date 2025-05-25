@@ -1,0 +1,91 @@
+--[[ snacks.lua
+
+Author: M.R. Siavash Katebzadeh <mr@katebzadeh.xyz>
+Keywords: Lua, Neovim
+Version: 0.0.1
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+]]
+return {
+	"folke/snacks.nvim",
+	priority = 1000,
+	lazy = false,
+	---@type snacks.Config
+	opts = {
+		bigfile = { enabled = true },
+		dashboard = {
+			enabled = true,
+			preset = {
+				---@type fun(cmd:string, opts:table)|nil
+				pick = nil,
+				---@type snacks.dashboard.Item[]
+				keys = {
+					{ icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
+					{ icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
+					{
+						icon = " ",
+						key = "g",
+						desc = "Find Text",
+						action = ":lua Snacks.dashboard.pick('live_grep')",
+					},
+					{
+						icon = " ",
+						key = "r",
+						desc = "Recent Files",
+						action = ":lua Snacks.dashboard.pick('oldfiles')",
+					},
+					{
+						icon = " ",
+						key = "c",
+						desc = "Config",
+						action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})",
+					},
+					{ icon = " ", key = "s", desc = "Restore Session", section = "session" },
+					{
+						icon = "󰒲 ",
+						key = "L",
+						desc = "Lazy",
+						action = ":Lazy",
+						enabled = package.loaded.lazy ~= nil,
+					},
+					{ icon = " ", key = "q", desc = "Quit", action = ":qa" },
+				},
+				-- Used by the `header` section
+				header = [[
+███╗   ███╗ █████╗ ███████╗██████╗ ██╗██╗   ██╗
+████╗ ████║██╔══██╗╚══███╔╝██╔══██╗██║██║   ██║
+██╔████╔██║███████║  ███╔╝ ██║  ██║██║██║   ██║
+██║╚██╔╝██║██╔══██║ ███╔╝  ██║  ██║██║╚██╗ ██╔╝
+██║ ╚═╝ ██║██║  ██║███████╗██████╔╝██║ ╚████╔╝..
+╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝╚═════╝ ╚═╝  ╚═══╝...
+]],
+			},
+		},
+		explorer = {
+			enabled = true,
+			replace_netrw = true,
+    },
+		indent = { enabled = true },
+		input = { enabled = true },
+		picker = { enabled = true },
+		notifier = { enabled = true },
+		quickfile = { enabled = true },
+		scope = { enabled = true },
+		scroll = { enabled = true },
+		statuscolumn = { enabled = false },
+		terminal = { enabled = false },
+		words = { enabled = true },
+	},
+}
+--[[ snacks.lua ends here. ]]

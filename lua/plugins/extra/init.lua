@@ -19,17 +19,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 return {
-	{ import = "plugins.extra.alpha" },
 	{ import = "plugins.extra.copilot" },
 	{ import = "plugins.extra.cphelper" },
 	{ import = "plugins.extra.direnv" },
 	{ import = "plugins.extra.distant" },
 	{ import = "plugins.extra.git" },
-	{ import = "plugins.extra.gpt" },
 	{ import = "plugins.extra.hardtime" },
-	-- { import = "plugins.extra.neorg" },
 	{ import = "plugins.extra.oil" },
-	-- { import = "plugins.extra.orgmode" },
 	{ import = "plugins.extra.sync" },
 	{ import = "plugins.extra.terminal" },
 	{ import = "plugins.extra.obsidian" },

@@ -43,7 +43,3 @@ end
 
 -- Create a user command :CloseBuffer
 vim.api.nvim_create_user_command("CloseBuffer", close_buffer_or_scratch, {})
-
-vim.api.nvim_create_user_command("FindFilesCwd", function()
-  vim.api.nvim_feedkeys(":Telescope fd cwd=" .. vim.fn.getcwd(), "n", false)
-end, {})

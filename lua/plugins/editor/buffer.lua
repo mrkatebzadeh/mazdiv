@@ -22,7 +22,7 @@ return {
 	{
 		"danilamihailov/beacon.nvim",
 		version = "2.0.0",
-
+    enabled = false,
 		config = function()
 			require("beacon").setup({})
 		end,

@@ -34,23 +34,9 @@ F_FILES.setup = function()
 				remap = false,
 			},
 			{
-				"<leader>fN",
-				"<CMD>Telescope file_browser <CR>",
-				desc = "File Browser",
-				nowait = true,
-				remap = false,
-			},
-			{
 				"<leader>fW",
 				":SudoWrite<CR>",
 				desc = "SudoWrite",
-				nowait = true,
-				remap = false,
-			},
-			{
-				"<leader>fb",
-				"<CMD>Neotree buffers reveal float<CR>",
-				desc = "Buffers",
 				nowait = true,
 				remap = false,
 			},
@@ -70,29 +56,27 @@ F_FILES.setup = function()
 			},
 			{
 				"<leader>fe",
-				"<CMD>Neotree toggle filesystem<CR>",
-				desc = "NeoTree",
+				function()
+					Snacks.explorer()
+				end,
+				desc = "Explorer",
 				nowait = true,
 				remap = false,
 			},
-			{
-				"<leader>fn",
-				"<CMD>FindFilesCwd<CR>",
-				desc = "File Browser",
-				nowait = true,
-				remap = false,
-			},
-
 			{
 				"<leader>fg",
-				"<CMD>Telescope live_grep theme=ivy<CR>",
+				function()
+					Snacks.picker.grep()
+				end,
 				desc = "Find Text",
 				nowait = true,
 				remap = false,
 			},
 			{
 				"<leader>fh",
-				"<CMD>Telescope help_tags theme=ivy<CR>",
+				function()
+					Snacks.picker.help()
+				end,
 				desc = "Help Tags",
 				nowait = true,
 				remap = false,
@@ -113,14 +97,18 @@ F_FILES.setup = function()
 			},
 			{
 				"<leader>ff",
-				"<CMD>Telescope find_files<CR>",
+				function()
+					Snacks.picker.files()
+				end,
 				desc = "Find File Fuzzy",
 				nowait = true,
 				remap = false,
 			},
 			{
 				"<leader>fo",
-				"<CMD>Telescope oldfiles theme=ivy<CR>",
+				function()
+					Snacks.picker.recent()
+				end,
 				desc = "Old Files",
 				nowait = true,
 				remap = false,

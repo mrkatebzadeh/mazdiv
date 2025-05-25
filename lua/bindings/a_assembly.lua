@@ -19,7 +19,7 @@ A_ASSEMBLY.setup = function()
 			},
 			{
 				"<leader>ac",
-				"<CMD>GodboltCompiler telescope<CR>",
+				"<CMD>GodboltCompiler fzf<CR>",
 				desc = "Godbolt Custom Compiler",
 				nowait = true,
 				remap = false,
