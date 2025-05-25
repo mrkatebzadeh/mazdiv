@@ -77,7 +77,15 @@ return {
 			enabled = true,
 		},
 		indent = { enabled = true },
-		input = { enabled = true },
+		input = {
+			enabled = true,
+			icon = " ",
+			icon_hl = "SnacksInputIcon",
+			icon_pos = "left",
+			prompt_pos = "title",
+			win = { style = "input" },
+			expand = true,
+		},
 		picker = {
 			enabled = true,
 			sources = {
@@ -107,6 +115,7 @@ return {
 		scope = { enabled = true },
 		scroll = { enabled = true },
 		statuscolumn = { enabled = false },
+		toggle = { enabled = true },
 		words = { enabled = true },
 	},
 }
