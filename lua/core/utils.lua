@@ -6,7 +6,7 @@ end
 vim.api.nvim_create_user_command("EditBufferDir", EditFromCurrentBufferDir, {})
 
 function EditNvimConfig()
-	vim.cmd(":Neotree reveal ~/.config/nvim")
+	Snacks.explorer.reveal({ file = vim.fn.expand("~/.config/nvim/init.lua") })
 end
 
 vim.api.nvim_create_user_command("EditNvimConfig", EditNvimConfig, {})
