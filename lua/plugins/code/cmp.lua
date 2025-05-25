@@ -19,11 +19,20 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 return {
-	{ "hrsh7th/cmp-nvim-lsp" },
-	{ "hrsh7th/cmp-path" },
-	{ "hrsh7th/cmp-cmdline" },
+	{
+    enabled = false,
+    "hrsh7th/cmp-nvim-lsp"
+
+  },
+	{
+    enabled = false,
+    "hrsh7th/cmp-path" },
+	{
+    enabled = false,
+    "hrsh7th/cmp-cmdline" },
 
 	{
+    enabled = false,
 		"hrsh7th/nvim-cmp",
 		tag = "v0.0.2",
 		dependencies = {

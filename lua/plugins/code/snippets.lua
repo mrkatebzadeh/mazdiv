@@ -23,6 +23,8 @@ return {
 	{
 		"L3MON4D3/LuaSnip",
 
+    enabled = false,
+
 		version = "v2.*",
 		dependencies = {
 			"saadparwaiz1/cmp_luasnip",
@@ -32,6 +34,7 @@ return {
 		build = "make install_jsregexp",
 	},
 	{
+    enabled = false,
 		"madskjeldgaard/cheeky-snippets.nvim",
 		requires = {
 			"L3MON4D3/LuaSnip",

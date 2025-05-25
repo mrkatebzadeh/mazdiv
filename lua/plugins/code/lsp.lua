@@ -31,6 +31,7 @@ return {
 	},
 	{
 		"neovim/nvim-lspconfig",
+		enabled = false,
 		lazy = false,
 		autostart = true,
 		config = function()
