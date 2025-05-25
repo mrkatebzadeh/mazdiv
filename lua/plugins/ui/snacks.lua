@@ -72,19 +72,41 @@ return {
 ]],
 			},
 		},
+		animate = { enabled = true },
 		explorer = {
 			enabled = true,
-			replace_netrw = true,
-    },
+		},
 		indent = { enabled = true },
 		input = { enabled = true },
-		picker = { enabled = true },
+		picker = {
+			enabled = true,
+			sources = {
+				explorer = {
+					layout = { layout = {
+						width = 30,
+						position = "left",
+					} },
+					follow_file = true,
+					tree = true,
+					focus = "list",
+					jump = { close = false },
+					auto_close = false,
+					win = {
+						list = {
+							keys = {
+								["."] = "explorer_focus",
+								["<tab>"] = "confirm",
+							},
+						},
+					},
+				},
+			},
+		},
 		notifier = { enabled = true },
 		quickfile = { enabled = true },
 		scope = { enabled = true },
 		scroll = { enabled = true },
 		statuscolumn = { enabled = false },
-		terminal = { enabled = false },
 		words = { enabled = true },
 	},
 }
