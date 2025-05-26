@@ -1,10 +1,6 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    dependencies = {
-      { "nushell/tree-sitter-nu" },
-    },
-    version = "v0.9.3",
     build = ":TSUpdate",
     config = function()
       local config = require("nvim-treesitter.configs")
