@@ -111,8 +111,10 @@ G_GIT.setup = function()
 			},
 			{
 				"<leader>gs",
-				"<CMD>Neogit<CR>",
-				desc = "Neogit",
+				function()
+					Snacks.lazygit()
+				end,
+				desc = "Lazygit",
 				nowait = true,
 				remap = false,
 			},
