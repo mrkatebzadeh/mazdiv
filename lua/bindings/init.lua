@@ -62,13 +62,6 @@ local setup = {
 
 local mappings = {
 	{
-		"<leader>A",
-		":Alpha<CR>",
-		desc = "Alpha",
-		nowait = true,
-		remap = false,
-	},
-	{
 		"<leader>H",
 		"<CMD>nohlsearch<CR>",
 		desc = "No Highlight",
@@ -77,14 +70,18 @@ local mappings = {
 	},
 	{
 		"<leader>p",
-		"<CMD>lua Snacks.picker.projects()<CR>",
+		function()
+			Snacks.picker.projects()
+		end,
 		desc = "Projects",
 		nowait = true,
 		remap = false,
 	},
 	{
 		"<leader>q",
-		"<CMD>lua my_quit()<CR>",
+		function()
+			my_quit()
+		end,
 		desc = "Quit",
 		nowait = true,
 		remap = false,
