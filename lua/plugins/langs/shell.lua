@@ -1,4 +1,4 @@
---[[ init.lua
+--[[ shell.lua
 
 Author: M.R. Siavash Katebzadeh <mr@katebzadeh.xyz>
 Keywords: Lua, Neovim
@@ -17,18 +17,30 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-
 return {
-	{ import = "plugins.langs.cmake" },
-	{ import = "plugins.langs.cpp" },
-	{ import = "plugins.langs.latex" },
-	{ import = "plugins.langs.markdown" },
-	{ import = "plugins.langs.nu" },
-	{ import = "plugins.langs.nix" },
-	{ import = "plugins.langs.rust" },
-	{ import = "plugins.langs.scala" },
-	{ import = "plugins.langs.shell" },
-	{ import = "plugins.langs.python" },
-}
+	{
+		"nvim-treesitter/nvim-treesitter",
+		opts = {
+			ensure_installed = { "bash", "just" },
+		},
+	},
+	{
+		"neovim/nvim-lspconfig",
+		opts = {
+			servers = {
+				bashls = {},
+			},
+		},
+	},
 
---[[ init.lua ends here. ]]
+	{
+		"mfussenegger/nvim-lint",
+		optional = true,
+		opts = {
+			linters_by_ft = {
+				sh = { "shellcheck" },
+			},
+		},
+	},
+}
+--[[ shell.lua ends here. ]]

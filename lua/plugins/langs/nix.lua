@@ -1,4 +1,4 @@
---[[ init.lua
+--[[ nix.lua
 
 Author: M.R. Siavash Katebzadeh <mr@katebzadeh.xyz>
 Keywords: Lua, Neovim
@@ -19,16 +19,28 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 return {
-	{ import = "plugins.langs.cmake" },
-	{ import = "plugins.langs.cpp" },
-	{ import = "plugins.langs.latex" },
-	{ import = "plugins.langs.markdown" },
-	{ import = "plugins.langs.nu" },
-	{ import = "plugins.langs.nix" },
-	{ import = "plugins.langs.rust" },
-	{ import = "plugins.langs.scala" },
-	{ import = "plugins.langs.shell" },
-	{ import = "plugins.langs.python" },
+	{
+		"nvim-treesitter/nvim-treesitter",
+		opts = {
+			ensure_installed = { "nix" },
+		},
+	},
+	{
+		"neovim/nvim-lspconfig",
+		opts = {
+			servers = {
+				rnix = {
+					mason = true,
+					settings = {
+						rnix = {
+							formatting = {
+								command = {},
+							},
+						},
+					},
+				},
+			},
+		},
+	},
 }
-
---[[ init.lua ends here. ]]
+--[[ nix.lua ends here. ]]

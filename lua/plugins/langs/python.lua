@@ -1,4 +1,4 @@
---[[ init.lua
+--[[ python.lua
 
 Author: M.R. Siavash Katebzadeh <mr@katebzadeh.xyz>
 Keywords: Lua, Neovim
@@ -19,16 +19,47 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 return {
-	{ import = "plugins.langs.cmake" },
-	{ import = "plugins.langs.cpp" },
-	{ import = "plugins.langs.latex" },
-	{ import = "plugins.langs.markdown" },
-	{ import = "plugins.langs.nu" },
-	{ import = "plugins.langs.nix" },
-	{ import = "plugins.langs.rust" },
-	{ import = "plugins.langs.scala" },
-	{ import = "plugins.langs.shell" },
-	{ import = "plugins.langs.python" },
+	{
+		"neovim/nvim-lspconfig",
+		opts = {
+			servers = {
+
+				ruff = {
+					mason = true,
+				},
+			},
+		},
+	},
+	{
+		"mfussenegger/nvim-lint",
+		dependencies = {
+			{
+				"mason-org/mason.nvim",
+				opts = {
+					ensure_installed = { "pylint" },
+				},
+			},
+		},
+		opts = {
+			linters_by_ft = {
+				python = { "pylint" },
+			},
+			linters = {
+				pylint = {
+					args = {
+						"--init-hook",
+						venv_path,
+						"-f",
+						"json",
+						"--from-stdin",
+						function()
+							return vim.api.nvim_buf_get_name(0)
+						end,
+					},
+				},
+			},
+		},
+	},
 }
 
---[[ init.lua ends here. ]]
+--[[ python.lua ends here. ]]
