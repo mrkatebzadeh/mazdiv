@@ -20,14 +20,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 return {
 	{
-		"danilamihailov/beacon.nvim",
-		version = "2.0.0",
-    enabled = false,
-		config = function()
-			require("beacon").setup({})
-		end,
-	},
-	{
 		"cappyzawa/trim.nvim",
 		opts = {},
 	},
