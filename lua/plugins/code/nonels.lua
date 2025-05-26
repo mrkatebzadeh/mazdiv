@@ -20,6 +20,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 return {
 	"nvimtools/none-ls.nvim",
+	dependencies = { "mason.nvim" },
 	config = function()
 		local null_ls = require("null-ls")
 		null_ls.setup({
@@ -33,7 +34,7 @@ return {
 				-- null_ls.builtins.code_actions.shellcheck,
 				-- null_ls.builtins.diagnostics.shellcheck,
 				null_ls.builtins.formatting.shfmt,
-				null_ls.builtins.formatting.nixpkgs_fmt,
+				-- null_ls.builtins.formatting.nixpkgs_fmt,
 				-- null_ls.builtins.formatting.jsonnetfmt,
 			},
 		})

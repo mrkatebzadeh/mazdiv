@@ -20,19 +20,46 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 return {
 	{
-		"williamboman/mason.nvim",
-		lazy = false,
-		config = function()
-			require("mason").setup()
-		end,
-	},
-	{
-		"williamboman/mason-lspconfig.nvim",
-		lazy = false,
+
+		"mason-org/mason.nvim",
+		cmd = "Mason",
+		build = ":MasonUpdate",
+		opts_extend = { "ensure_installed" },
 		opts = {
-			ensure_installed = { codelldb },
-			auto_install = true,
+			ensure_installed = {
+				"lua-language-server",
+				"stylua",
+				"selene",
+				"shellcheck",
+				"shfmt",
+				"codespell",
+				"ruff",
+				"marksman",
+				"rnix-lsp",
+				"nixpkgs-fmt",
+				"rust-analyzer",
+				"shellcheck",
+			},
 		},
+		config = function(_, opts)
+			local notify = vim.notify
+			require("mason").setup(opts)
+			local mr = require("mason-registry")
+			mr:on("package:install:success", function()
+				notify("Mason: Successfully installed " .. pkg.name, vim.log.levels.INFO)
+			end)
+
+			mr.refresh(function()
+				for _, tool in ipairs(opts.ensure_installed) do
+					local p = mr.get_package(tool)
+					if not p:is_installed() then
+						notify("Mason: Installing " .. tool .. "...", vim.log.levels.INFO)
+
+						p:install()
+					end
+				end
+			end)
+		end,
 	},
 }
 
