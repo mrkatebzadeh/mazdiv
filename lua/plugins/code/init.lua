@@ -21,6 +21,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 return {
 	{ import = "plugins.code.blink" },
 	{ import = "plugins.code.debug" },
+	{ import = "plugins.code.lsp" },
 	{ import = "plugins.code.filehead" },
 	{ import = "plugins.code.godbolt" },
 	{ import = "plugins.code.mason" },
