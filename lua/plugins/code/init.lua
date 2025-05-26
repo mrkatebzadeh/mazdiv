@@ -22,6 +22,7 @@ return {
 	{ import = "plugins.code.blink" },
 	{ import = "plugins.code.debug" },
 	{ import = "plugins.code.lsp" },
+	{ import = "plugins.code.linting" },
 	{ import = "plugins.code.filehead" },
 	{ import = "plugins.code.godbolt" },
 	{ import = "plugins.code.mason" },
