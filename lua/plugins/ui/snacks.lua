@@ -115,16 +115,8 @@ return {
 		scope = { enabled = true },
 		scroll = { enabled = true },
 		statuscolumn = {
-			left = { "git", "sign", "mark" },
-			right = { "fold" },
-			folds = {
-				open = true,
-				git_hl = false,
-			},
-			git = {
-				patterns = { "GitSign", "MiniDiffSign" },
-			},
-			refresh = 50,
+			left = { "mark", "sign" },
+			right = { "fold", "git" },
 		},
 		toggle = { enabled = true },
 		words = { enabled = true },

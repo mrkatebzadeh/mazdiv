@@ -29,6 +29,15 @@ return {
 			local capabilities = require("blink.cmp").default_capabilities()
 
 			local lspconfig = require("lspconfig")
+			local icons = require("icons")
+			lspconfig.diagnostics.signs = {
+				text = {
+					[vim.diagnostic.severity.ERROR] = icons.DiagnosticError,
+					[vim.diagnostic.severity.WARN] = icons.DiagnosticWarn,
+					[vim.diagnostic.severity.HINT] = icons.DiagnosticHint,
+					[vim.diagnostic.severity.INFO] = icons.DiagnosticInfo,
+				},
+			}
 
 			lspconfig.verible.setup({
 				cmd = { "verible-verilog-ls", "--rules_config_search" },
