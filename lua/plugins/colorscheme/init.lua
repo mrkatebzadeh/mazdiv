@@ -22,7 +22,6 @@ return {
   { import = "plugins.colorscheme.catppuccin" },
   { import = "plugins.colorscheme.doom" },
   { import = "plugins.colorscheme.neofusion" },
-  { import = "plugins.colorscheme.theme_picker" },
 }
 
 --[[ init.lua ends here. ]]
