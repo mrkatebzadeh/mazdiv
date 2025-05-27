@@ -37,7 +37,9 @@ T_TOGGLES.setup = function()
 			},
 			{
 				"<leader>tT",
-				'<CMD>lua require("theme-picker").open_theme_picker()<CR>',
+				function()
+					Snacks.picker.colorschemes()
+				end,
 				desc = " Theme Picker",
 				nowait = true,
 				remap = false,
@@ -58,7 +60,9 @@ T_TOGGLES.setup = function()
 			},
 			{
 				"<leader>ti",
-				"<CMD>IBLToggle<CR>",
+				function()
+					vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ 0 }), { 0 })
+				end,
 				desc = "Indent Hints",
 				nowait = true,
 				remap = false,
@@ -79,14 +83,18 @@ T_TOGGLES.setup = function()
 			},
 			{
 				"<leader>tt",
-				function() Snacks.picker.todo_comments()end,
+				function()
+					Snacks.picker.todo_comments()
+				end,
 				desc = "TODOs",
 				nowait = true,
 				remap = false,
 			},
 			{
 				"<leader>tu",
-				function() Snacks.picker.undo()end,
+				function()
+					Snacks.picker.undo()
+				end,
 				desc = "Undo",
 				nowait = true,
 				remap = false,

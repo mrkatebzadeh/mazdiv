@@ -29,6 +29,7 @@ return {
 		lazy = false,
 		autostart = true,
 
+		opts = { inlay_hints = { enabled = true } },
 		config = function(_, opts)
 			local lspconfig = require("lspconfig")
 
