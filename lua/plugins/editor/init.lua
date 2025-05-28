@@ -30,7 +30,7 @@ return {
 	{ import = "plugins.editor.hover" },
 	{ import = "plugins.editor.illuminate" },
 	{ import = "plugins.editor.lastplace" },
-	{ import = "plugins.editor.leap" },
+	{ import = "plugins.editor.flash" },
 	{ import = "plugins.editor.lualine" },
 	{ import = "plugins.editor.numbers" },
 	{ import = "plugins.editor.rainbow" },
