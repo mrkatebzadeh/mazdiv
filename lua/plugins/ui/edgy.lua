@@ -21,7 +21,7 @@ return {
 			},
 			{
 				ft = "toggleterm",
-				title = "LazyTerm",
+				title = "ToggleTerm",
 				size = { height = 0.4 },
 				filter = function(buf, win)
 					return vim.api.nvim_win_get_config(win).relative == ""
@@ -61,12 +61,12 @@ return {
 		left = {
 			{
 				title = "Files",
-				ft = "explorer",
-				filter = function(buf)
-					return vim.b[buf].neo_tree_source == "filesystem"
+				ft = "snacks_layout_box",
+				filter = function(buf, win)
+					return vim.api.nvim_win_get_config(win).relative == ""
 				end,
 				pinned = true,
-				size = { height = 0.5 },
+				size = { height = 1 },
 			},
 		},
 		right = {
