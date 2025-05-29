@@ -1,4 +1,4 @@
---[[ init.lua
+--[[ avante.lua
 
 Author: M.R. Siavash Katebzadeh <mr@katebzadeh.xyz>
 Keywords: Lua, Neovim
@@ -17,18 +17,23 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-
 return {
-	{ import = "plugins.extra.avante" },
-	{ import = "plugins.extra.copilot" },
-	{ import = "plugins.extra.cphelper" },
-	{ import = "plugins.extra.direnv" },
-	{ import = "plugins.extra.distant" },
-	{ import = "plugins.extra.git" },
-	{ import = "plugins.extra.hardtime" },
-	{ import = "plugins.extra.oil" },
-	{ import = "plugins.extra.sync" },
-	{ import = "plugins.extra.terminal" },
-	{ import = "plugins.extra.obsidian" },
+	"yetone/avante.nvim",
+	event = "VeryLazy",
+	version = false,
+	opts = {
+		provider = "ollama",
+		ollama = {
+			endpoint = (os.getenv("OLLAMA_HOST") or "http://127.0.0.1:11434"),
+			model = "deepseek-r1:latest",
+		},
+	},
+	build = "make",
+	dependencies = {
+		"nvim-treesitter/nvim-treesitter",
+		"stevearc/dressing.nvim",
+		"nvim-lua/plenary.nvim",
+		"MunifTanjim/nui.nvim",
+	},
 }
---[[ init.lua ends here. ]]
+--[[ avante.lua ends here. ]]

@@ -9,16 +9,16 @@ A_ASSEMBLY.setup = function()
 	local mappings = {
 		{
 			mode = { "v", "n" },
-			{ "<leader>a", group = "Assembly", nowait = true, remap = false },
+			{ "<leader>A", group = "Assembly", nowait = true, remap = false },
 			{
-				"<leader>aa",
+				"<leader>Aa",
 				"<CMD>Godbolt<CR>",
 				desc = "Godbolt",
 				nowait = true,
 				remap = false,
 			},
 			{
-				"<leader>ac",
+				"<leader>Ac",
 				"<CMD>GodboltCompiler fzf<CR>",
 				desc = "Godbolt Custom Compiler",
 				nowait = true,
