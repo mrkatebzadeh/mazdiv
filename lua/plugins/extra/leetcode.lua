@@ -1,4 +1,4 @@
---[[ init.lua
+--[[ leetcode.lua
 
 Author: M.R. Siavash Katebzadeh <mr@katebzadeh.xyz>
 Keywords: Lua, Neovim
@@ -17,19 +17,19 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-
 return {
-	{ import = "plugins.extra.avante" },
-	{ import = "plugins.extra.copilot" },
-	{ import = "plugins.extra.cphelper" },
-	{ import = "plugins.extra.direnv" },
-	{ import = "plugins.extra.distant" },
-	{ import = "plugins.extra.git" },
-	{ import = "plugins.extra.leetcode" },
-	{ import = "plugins.extra.hardtime" },
-	{ import = "plugins.extra.oil" },
-	{ import = "plugins.extra.sync" },
-	{ import = "plugins.extra.terminal" },
-	{ import = "plugins.extra.obsidian" },
+	"kawre/leetcode.nvim",
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+		"MunifTanjim/nui.nvim",
+		"ibhagwan/fzf-lua",
+	},
+	opts = {
+		lang = "rust",
+		storage = {
+			home = vim.fn.expand("$HOME") .. "/Nextcloud/leetcode",
+			cache = vim.fn.stdpath("cache") .. "/leetcode",
+		},
+	},
 }
---[[ init.lua ends here. ]]
+--[[ leetcode.lua ends here. ]]
