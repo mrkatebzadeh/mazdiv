@@ -36,6 +36,13 @@ T_TOGGLES.setup = function()
 				remap = false,
 			},
 			{
+				"<leader>th",
+				"<CMD>Hardtime toggle<CR>",
+				desc = "Toggle Hard Mode",
+				nowait = true,
+				remap = false,
+			},
+			{
 				"<leader>tT",
 				function()
 					Snacks.picker.colorschemes()
