@@ -27,7 +27,7 @@ return {
   config = function()
     require("catppuccin").setup({
       flavour = "frappe",
-      transparent_background = true,
+      transparent_background = vim.g.neovide == false,
       styles = {
         comments = { "italic" },
       },
