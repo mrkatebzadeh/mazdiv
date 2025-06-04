@@ -18,11 +18,10 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 return {
-	"kawre/leetcode.nvim",
+	"BYT0723/leetcode.nvim",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"MunifTanjim/nui.nvim",
-		"ibhagwan/fzf-lua",
 	},
 	opts = {
 		lang = "rust",
@@ -30,6 +29,7 @@ return {
 			home = vim.fn.expand("$HOME") .. "/Nextcloud/leetcode",
 			cache = vim.fn.stdpath("cache") .. "/leetcode",
 		},
+		picker = { provider = "snacks-picker" },
 	},
 }
 --[[ leetcode.lua ends here. ]]
