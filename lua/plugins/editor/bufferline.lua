@@ -2,7 +2,7 @@ return {
 	{
 		-- A snazzy bufferline for Neovim
 		"akinsho/bufferline.nvim",
-		enabled = true,
+		enabled = false,
 		version = "v4.9.1",
 		opts = function()
 			local Offset = require("bufferline.offset")
