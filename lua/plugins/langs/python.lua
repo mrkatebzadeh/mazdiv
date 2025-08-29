@@ -19,47 +19,60 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 return {
-	{
-		"neovim/nvim-lspconfig",
-		opts = {
-			servers = {
+  {
+    "kiyoon/jupynium.nvim",
+    dependencies = {
+      "rcarriga/nvim-notify",
+      "stevearc/dressing.nvim",
+    },
+    opts = {
+      jupyter_command = "jupyter notebook",
+    },
+    build = "pip3 install --user .",
+    -- build = "uv pip install . --python=$HOME/.virtualenvs/jupynium/bin/python",
+    -- build = "conda run --no-capture-output -n jupynium pip install .",
+  },
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
 
-				ruff = {
-					mason = true,
-				},
-			},
-		},
-	},
-	{
-		"mfussenegger/nvim-lint",
-		dependencies = {
-			{
-				"mason-org/mason.nvim",
-				opts = {
-					ensure_installed = { "pylint" },
-				},
-			},
-		},
-		opts = {
-			linters_by_ft = {
-				python = { "pylint" },
-			},
-			linters = {
-				pylint = {
-					args = {
-						"--init-hook",
-						venv_path,
-						"-f",
-						"json",
-						"--from-stdin",
-						function()
-							return vim.api.nvim_buf_get_name(0)
-						end,
-					},
-				},
-			},
-		},
-	},
+        ruff = {
+          mason = true,
+        },
+      },
+    },
+  },
+  {
+    "mfussenegger/nvim-lint",
+    dependencies = {
+      {
+        "mason-org/mason.nvim",
+        opts = {
+          ensure_installed = { "pylint" },
+        },
+      },
+    },
+    opts = {
+      linters_by_ft = {
+        python = { "pylint" },
+      },
+      linters = {
+        pylint = {
+          args = {
+            "--init-hook",
+            venv_path,
+            "-f",
+            "json",
+            "--from-stdin",
+            function()
+              return vim.api.nvim_buf_get_name(0)
+            end,
+          },
+        },
+      },
+    },
+  },
 }
 
 --[[ python.lua ends here. ]]
