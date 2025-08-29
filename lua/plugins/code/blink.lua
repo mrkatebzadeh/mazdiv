@@ -18,61 +18,37 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 return {
-	"saghen/blink.cmp",
-	version = "1.3.0",
-	dependencies = {
-		"rafamadriz/friendly-snippets",
-		{
-			"saghen/blink.compat",
-			optional = true,
-			opts = {},
-			version = not vim.g.lazyvim_blink_main and "*",
-		},
-	},
-	event = "InsertEnter",
+  "saghen/blink.cmp",
+  version = "1.6.0",
+  dependencies = {
+    "rafamadriz/friendly-snippets",
+    {
+      "saghen/blink.compat",
+      optional = true,
+      opts = {},
+      version = not vim.g.lazyvim_blink_main and "*",
+    },
+  },
+  event = "InsertEnter",
 
-	---@module 'blink.cmp'
-	---@type blink.cmp.Config
-	opts = {
-		keymap = {
-			preset = "enter",
-			["<Tab>"] =  { 'select_next', 'fallback' } ,
-			["<S-Tab>"] =  { 'select_prev', 'fallback' } ,
-		},
-
-		appearance = {
-			nerd_font_variant = "mono",
-		},
-
-		completion = {
-			accept = {
-				auto_brackets = {
-					enabled = true,
-				},
-			},
-			menu = {
-				draw = {
-					treesitter = { "lsp" },
-				},
-			},
-			documentation = {
-				auto_show = true,
-				auto_show_delay_ms = 200,
-			},
-			ghost_text = {
-				enabled = vim.g.ai_cmp,
-			},
-		},
-		sources = {
-			default = { "lsp", "path", "snippets" },
-		},
-
-		fuzzy = { implementation = "prefer_rust_with_warning" },
-	},
-	opts_extend = {
-		"sources.completion.enabled_providers",
-		"sources.compat",
-		"sources.default",
-	},
+  ---@module 'blink.cmp'
+  ---@type blink.cmp.Config
+  opts_extend = {
+    "sources.completion.enabled_providers",
+    "sources.compat",
+    "sources.default",
+  },
+  opts = {
+    sources = {
+      default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+      providers = {
+        lazydev = {
+          name = "LazyDev",
+          module = "lazydev.integrations.blink",
+          score_offset = 100,
+        },
+      },
+    },
+  },
 }
 --[[ blink.lua ends here. ]]
