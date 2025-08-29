@@ -18,22 +18,24 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 return {
-	"yetone/avante.nvim",
-	event = "VeryLazy",
-	version = false,
-	opts = {
-		provider = "ollama",
-		ollama = {
-			endpoint = (os.getenv("OLLAMA_HOST") or "http://127.0.0.1:11434"),
-			model = "deepseek-r1:latest",
-		},
-	},
-	build = "make",
-	dependencies = {
-		"nvim-treesitter/nvim-treesitter",
-		"stevearc/dressing.nvim",
-		"nvim-lua/plenary.nvim",
-		"MunifTanjim/nui.nvim",
-	},
+  "yetone/avante.nvim",
+  event = "VeryLazy",
+  version = false,
+  opts = {
+    provider = "ollama",
+    providers = {
+      ollama = {
+        endpoint = (os.getenv("OLLAMA_HOST") or "http://127.0.0.1:11434"),
+        model = "deepseek-r1:latest",
+      },
+    },
+  },
+  build = "make",
+  dependencies = {
+    "nvim-treesitter/nvim-treesitter",
+    "stevearc/dressing.nvim",
+    "nvim-lua/plenary.nvim",
+    "MunifTanjim/nui.nvim",
+  },
 }
 --[[ avante.lua ends here. ]]
