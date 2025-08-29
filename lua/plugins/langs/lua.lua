@@ -19,6 +19,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 return {
   {
+    "folke/lazydev.nvim",
+    ft = "lua",
+    opts = {
+      library = {
+        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+      },
+    },
+  },
+  {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = { "lua-language-server" },
