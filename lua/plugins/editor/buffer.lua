@@ -19,35 +19,39 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 return {
-	{
-		"cappyzawa/trim.nvim",
-		opts = {},
-	},
-	{
-		"hedyhli/outline.nvim",
-		config = function()
-			require("outline").setup({})
-		end,
-	},
-	{
-		-- The fastest Neovim colorizer.
-		"norcalli/nvim-colorizer.lua",
-	},
-	{
-		"chentoast/marks.nvim",
-		commit = "74e8d01",
-		config = function()
-			require("marks").setup({})
-		end,
-	},
-	{
-		"kylechui/nvim-surround",
-		version = "3.1.0",
-		event = "VeryLazy",
-		config = function()
-			require("nvim-surround").setup({})
-		end,
-	},
+  {
+    "SunnyTamang/select-undo.nvim",
+    opts = {},
+  },
+  {
+    "cappyzawa/trim.nvim",
+    opts = {},
+  },
+  {
+    "hedyhli/outline.nvim",
+    config = function()
+      require("outline").setup({})
+    end,
+  },
+  {
+    -- The fastest Neovim colorizer.
+    "norcalli/nvim-colorizer.lua",
+  },
+  {
+    "chentoast/marks.nvim",
+    commit = "74e8d01",
+    config = function()
+      require("marks").setup({})
+    end,
+  },
+  {
+    "kylechui/nvim-surround",
+    version = "3.1.0",
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup({})
+    end,
+  },
 }
 
 --[[ buffer.lua ends here. ]]
