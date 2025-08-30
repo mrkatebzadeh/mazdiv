@@ -63,7 +63,6 @@ vim.fn.sign_define("DapStopped", { text = icons.DapStopped, texthl = "Diagnostic
 
 vim.diagnostic.config({
   signs = {
-    --support diagnostic severity / diagnostic type name
     text = {
       [vim.diagnostic.severity.ERROR] = icons.DiagnosticError,
       [vim.diagnostic.severity.WARN] = icons.DiagnosticWarn,
@@ -71,4 +70,48 @@ vim.diagnostic.config({
       [vim.diagnostic.severity.HINT] = icons.DiagnosticHint,
     },
   },
+})
+
+local function set_project_cwd()
+  local api = vim.api
+  local uv = vim.loop
+  local buf_path = api.nvim_buf_get_name(0)
+  if buf_path == "" then
+    return
+  end
+
+  local clients = vim.lsp.get_active_clients({ bufnr = 0 })
+  local root_dir
+  if #clients > 0 then
+    root_dir = clients[1].config.root_dir
+  end
+
+  if not root_dir then
+    local path = uv.fs_realpath(buf_path)
+    local function find_root(dir)
+      local markers = { ".git", "package.json", "pyproject.toml", "Cargo.toml" }
+      for _, marker in ipairs(markers) do
+        if uv.fs_stat(dir .. "/" .. marker) then
+          return dir
+        end
+      end
+      local parent = uv.fs_realpath(dir .. "/..")
+      if parent and parent ~= dir then
+        return find_root(parent)
+      end
+      return nil
+    end
+    root_dir = find_root(vim.fn.fnamemodify(buf_path, ":p:h"))
+  end
+
+  if not root_dir then
+    root_dir = vim.fn.fnamemodify(buf_path, ":p:h")
+  end
+
+  vim.cmd("cd " .. root_dir)
+end
+
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+  pattern = "*",
+  callback = set_project_cwd,
 })
