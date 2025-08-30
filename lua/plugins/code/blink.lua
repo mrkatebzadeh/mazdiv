@@ -39,6 +39,16 @@ return {
     "sources.default",
   },
   opts = {
+    signature = { enabled = true },
+    list = { selection = { preselect = false, auto_insert = false } },
+    keymap = {
+      ["<Tab>"] = {
+        "select_next",
+        "fallback",
+      },
+      ["<S-Tab>"] = { "select_prev", "fallback" },
+      ["<CR>"] = { "accept", "fallback" },
+    },
     sources = {
       default = { "lazydev", "lsp", "path", "snippets", "buffer" },
       providers = {
