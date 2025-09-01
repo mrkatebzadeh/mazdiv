@@ -22,8 +22,11 @@ return {
   event = "VeryLazy",
   version = false,
   opts = {
-    provider = "ollama",
+    provider = "openai",
     providers = {
+      openai = {
+        api_key_name = "cmd:pass openai/key",
+      },
       ollama = {
         endpoint = (os.getenv("OLLAMA_HOST") or "http://127.0.0.1:11434"),
         model = "deepseek-r1:latest",
