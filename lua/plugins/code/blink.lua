@@ -18,47 +18,53 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 return {
-  "saghen/blink.cmp",
-  version = "1.6.0",
-  dependencies = {
-    "rafamadriz/friendly-snippets",
-    {
-      "saghen/blink.compat",
-      optional = true,
-      opts = {},
-      version = not vim.g.lazyvim_blink_main and "*",
-    },
-  },
-  event = "InsertEnter",
+	"saghen/blink.cmp",
+	version = "1.6.0",
+	dependencies = {
+		"rafamadriz/friendly-snippets",
+		"Kaiser-Yang/blink-cmp-avante",
+		{
+			"saghen/blink.compat",
+			optional = true,
+			opts = {},
+			version = not vim.g.lazyvim_blink_main and "*",
+		},
+	},
+	event = "InsertEnter",
 
-  ---@module 'blink.cmp'
-  ---@type blink.cmp.Config
-  opts_extend = {
-    "sources.completion.enabled_providers",
-    "sources.compat",
-    "sources.default",
-  },
-  opts = {
-    signature = { enabled = true },
-    list = { selection = { preselect = false, auto_insert = false } },
-    keymap = {
-      ["<Tab>"] = {
-        "select_next",
-        "fallback",
-      },
-      ["<S-Tab>"] = { "select_prev", "fallback" },
-      ["<CR>"] = { "accept", "fallback" },
-    },
-    sources = {
-      default = { "lazydev", "lsp", "path", "snippets", "buffer" },
-      providers = {
-        lazydev = {
-          name = "LazyDev",
-          module = "lazydev.integrations.blink",
-          score_offset = 100,
-        },
-      },
-    },
-  },
+	---@module 'blink.cmp'
+	---@type blink.cmp.Config
+	opts_extend = {
+		"sources.completion.enabled_providers",
+		"sources.compat",
+		"sources.default",
+	},
+	opts = {
+		signature = { enabled = true },
+		list = { selection = { preselect = false, auto_insert = false } },
+		keymap = {
+			["<Tab>"] = {
+				"select_next",
+				"fallback",
+			},
+			["<S-Tab>"] = { "select_prev", "fallback" },
+			["<CR>"] = { "accept", "fallback" },
+		},
+		sources = {
+			default = { "avante", "lazydev", "lsp", "path", "snippets", "buffer" },
+			providers = {
+				avante = {
+					module = "blink-cmp-avante",
+					name = "Avante",
+					opts = {},
+				},
+				lazydev = {
+					name = "LazyDev",
+					module = "lazydev.integrations.blink",
+					score_offset = 100,
+				},
+			},
+		},
+	},
 }
 --[[ blink.lua ends here. ]]
