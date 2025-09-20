@@ -1,4 +1,4 @@
---[[ init.lua
+--[[ i_insert.lua
 
 Author: M.R. Siavash Katebzadeh <mr@katebzadeh.xyz>
 Keywords: Lua, Neovim
@@ -18,20 +18,21 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
-return {
-  { import = "plugins.extra.avante" },
-  { import = "plugins.extra.copilot" },
-  { import = "plugins.extra.cphelper" },
-  { import = "plugins.extra.direnv" },
-  { import = "plugins.extra.distant" },
-  { import = "plugins.extra.emoji" },
-  { import = "plugins.extra.git" },
-  { import = "plugins.extra.leetcode" },
-  { import = "plugins.extra.hardtime" },
-  { import = "plugins.extra.oil" },
-  { import = "plugins.extra.sync" },
-  { import = "plugins.extra.terminal" },
-  { import = "plugins.extra.obsidian" },
-  { import = "plugins.extra.typr" },
-}
---[[ init.lua ends here. ]]
+I_INSERT = {}
+
+I_INSERT.setup = function()
+	local status_ok, which_key = pcall(require, "which-key")
+	if not status_ok then
+		return
+	end
+
+	local mappings = {
+		{ "<leader>i", group = "Insert", nowait = true, remap = false },
+		{ "<leader>ie", "<CMD>Emoji<CR>", desc = "Emoji", nowait = true, remap = false },
+	}
+
+	which_key.add(mappings)
+end
+
+return I_INSERT
+--[[ i_insert.lua ends here. ]]

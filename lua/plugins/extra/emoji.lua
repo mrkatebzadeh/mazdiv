@@ -1,4 +1,4 @@
---[[ init.lua
+--[[ emoji.lua
 
 Author: M.R. Siavash Katebzadeh <mr@katebzadeh.xyz>
 Keywords: Lua, Neovim
@@ -19,19 +19,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 return {
-  { import = "plugins.extra.avante" },
-  { import = "plugins.extra.copilot" },
-  { import = "plugins.extra.cphelper" },
-  { import = "plugins.extra.direnv" },
-  { import = "plugins.extra.distant" },
-  { import = "plugins.extra.emoji" },
-  { import = "plugins.extra.git" },
-  { import = "plugins.extra.leetcode" },
-  { import = "plugins.extra.hardtime" },
-  { import = "plugins.extra.oil" },
-  { import = "plugins.extra.sync" },
-  { import = "plugins.extra.terminal" },
-  { import = "plugins.extra.obsidian" },
-  { import = "plugins.extra.typr" },
+  "allaman/emoji.nvim",
+  version = "v5.0.0",
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+  },
+  opts = {
+    ui_select = true,
+  },
+  config = function(_, opts)
+    require("emoji").setup(opts)
+  end,
 }
---[[ init.lua ends here. ]]
+--[[ emoji.lua ends here. ]]
