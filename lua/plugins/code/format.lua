@@ -1,4 +1,4 @@
---[[ init.lua
+--[[ format.lua
 
 Author: M.R. Siavash Katebzadeh <mr@katebzadeh.xyz>
 Keywords: Lua, Neovim
@@ -19,20 +19,19 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 return {
-  { import = "plugins.code.blink" },
-  { import = "plugins.code.debug" },
-  { import = "plugins.code.lsp" },
-  { import = "plugins.code.linting" },
-  { import = "plugins.code.format" },
-  { import = "plugins.code.filehead" },
-  { import = "plugins.code.godbolt" },
-  { import = "plugins.code.mason" },
-  { import = "plugins.code.neogen" },
-  { import = "plugins.code.neotest" },
-  { import = "plugins.code.nonels" },
-  { import = "plugins.code.refactor" },
-  { import = "plugins.code.snippets" },
-  { import = "plugins.code.tasks" },
+  "stevearc/conform.nvim",
+  version = "v9.1.0",
+  opts = {},
+  config = function()
+    require("conform").setup({
+      formatters_by_ft = {
+        lua = { "stylua" },
+        python = { "isort", "black" },
+        rust = { "rustfmt", lsp_format = "fallback" },
+        javascript = {"js_beautify", "prettierd", "prettier", stop_after_first = true },
+      },
+    })
+  end,
 }
 
---[[ init.lua ends here. ]]
+--[[ format.lua ends here. ]]
