@@ -17,6 +17,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
+
 return {
 	"saghen/blink.cmp",
 	version = "1.6.0",
@@ -55,8 +56,25 @@ return {
 			providers = {
 				avante = {
 					module = "blink-cmp-avante",
-					name = "Avante",
-					opts = {},
+					name = "avante",
+					opts = {
+						avante = {
+							command = {
+								get_kind_name = function(_)
+									return "AvanteCmd"
+								end,
+							},
+							mention = {
+								get_kind_name = function(_)
+									return "AvanteMention"
+								end,
+							},
+						},
+						kind_icons = {
+							AvanteCmd = "",
+							AvanteMention = "",
+						},
+					},
 				},
 				lazydev = {
 					name = "LazyDev",
