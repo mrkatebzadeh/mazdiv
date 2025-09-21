@@ -25,6 +25,13 @@ C_CHATGPT.setup = function()
         nowait = true,
         remap = false,
       },
+      {
+        "<leader>Cm",
+        "<CMD>CodeCompanion /cm<CR>",
+        desc = "Generate Commit Message",
+        nowait = true,
+        remap = false,
+      },
     },
   }
 

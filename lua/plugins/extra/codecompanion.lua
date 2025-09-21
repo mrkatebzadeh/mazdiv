@@ -17,7 +17,6 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-local fmt = string.format
 
 return {
   "olimorris/codecompanion.nvim",
@@ -43,7 +42,16 @@ return {
             },
             role = "user",
             content = function()
-              return fmt(
+              local function get_git_diff()
+                local neogit = require("neogit")
+                local root = neogit.lib.git.repo.git_dir
+                if not root or root == "" then
+                  return "No git repository found."
+                end
+                return vim.fn.system({ "git", "-C", root, "diff", "--no-ext-diff", "--staged" })
+              end
+              local diff = get_git_diff()
+              return string.format(
                 [[You are an expert at writing Git commits. Your job is to write a short clear commit message that summarizes the changes.
 
 The commit message should be structured as follows:
@@ -64,7 +72,7 @@ Given the git diff listed below:
 %s
 ```
 ]],
-                vim.fn.system("git diff --no-ext-diff --staged")
+                diff
               )
             end,
           },
