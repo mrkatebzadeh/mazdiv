@@ -80,7 +80,7 @@ local function set_project_cwd()
     return
   end
 
-  local clients = vim.lsp.get_active_clients({ bufnr = 0 })
+  local clients = vim.lsp.get_clients({ bufnr = 0 })
   local root_dir
   if #clients > 0 then
     root_dir = clients[1].config.root_dir
