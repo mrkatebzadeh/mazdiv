@@ -20,6 +20,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 return {
   { import = "plugins.extra.avante" },
+  { import = "plugins.extra.codecompanion" },
   { import = "plugins.extra.copilot" },
   { import = "plugins.extra.cphelper" },
   { import = "plugins.extra.direnv" },
