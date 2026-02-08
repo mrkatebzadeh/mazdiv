@@ -42,7 +42,11 @@ return {
 	},
 	opts = {
 		signature = { enabled = true },
-		list = { selection = { preselect = false, auto_insert = false } },
+		completion = {
+			list = {
+				selection = { preselect = false, auto_insert = false },
+			},
+		},
 		keymap = {
 			["<Tab>"] = {
 				"select_next",

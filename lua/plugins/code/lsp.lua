@@ -22,10 +22,6 @@ return {
 
 	{
 		"neovim/nvim-lspconfig",
-		dependencies = {
-
-			"mason-lspconfig.nvim",
-		},
 		lazy = false,
 		autostart = true,
 

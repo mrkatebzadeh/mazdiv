@@ -24,7 +24,6 @@ return {
 	{ import = "plugins.langs.latex" },
 	{ import = "plugins.langs.lua" },
 	{ import = "plugins.langs.markdown" },
-	{ import = "plugins.langs.neorg" },
 	{ import = "plugins.langs.nu" },
 	{ import = "plugins.langs.nix" },
 	{ import = "plugins.langs.rust" },

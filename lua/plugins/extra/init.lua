@@ -19,20 +19,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 return {
-  { import = "plugins.extra.avante" },
   { import = "plugins.extra.codecompanion" },
   { import = "plugins.extra.copilot" },
-  { import = "plugins.extra.cphelper" },
-  { import = "plugins.extra.direnv" },
-  { import = "plugins.extra.distant" },
   { import = "plugins.extra.emoji" },
   { import = "plugins.extra.git" },
   { import = "plugins.extra.leetcode" },
   { import = "plugins.extra.hardtime" },
   { import = "plugins.extra.oil" },
-  { import = "plugins.extra.sync" },
   { import = "plugins.extra.terminal" },
-  { import = "plugins.extra.obsidian" },
   { import = "plugins.extra.typr" },
 }
 --[[ init.lua ends here. ]]
