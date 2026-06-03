@@ -126,3 +126,31 @@ require('fzf-lua').setup({
     }
 })
 
+vim.pack.add({
+    { src = "https://github.com/nvim-tree/nvim-web-devicons" },
+    { src = "https://github.com/nvim-tree/nvim-tree.lua" },
+})
+
+require('nvim-tree').setup({
+    disable_netrw = true,
+    hijack_netrw = true,
+    git = {
+        enable = true,
+    },
+    view = {
+        width = 30,
+        side = "left",
+    },
+    renderer = {
+        icons = {
+            show = {
+                git = true,
+                folder = true,
+                file = true,
+            },
+        },
+    },
+    diagnostics = {
+        enable = false,
+    },
+})
