@@ -23,15 +23,19 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		lazy = false,
-		autostart = true,
 
-		opts = { inlay_hints = { enabled = true } },
+		opts = {
+			servers = {},
+			inlay_hints = { enabled = true },
+		},
 		config = function(_, opts)
-			local lspconfig = require("lspconfig")
-
-			for server, config in pairs(opts.servers) do
+			-- nvim-lspconfig's legacy `require('lspconfig')` module is deprecated on Nvim 0.11+.
+			-- Use the builtin LSP config API instead.
+			for server, config in pairs(opts.servers or {}) do
+				config = config or {}
 				config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
-				lspconfig[server].setup(config)
+				vim.lsp.config(server, config)
+				vim.lsp.enable(server)
 			end
 		end,
 	},
