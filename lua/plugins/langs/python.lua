@@ -18,6 +18,36 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
+local function pylint_init_hook()
+  local venv = vim.env.VIRTUAL_ENV
+  if not venv or venv == "" then
+    return nil
+  end
+
+  local python
+  for _, candidate in ipairs({ venv .. "/bin/python", venv .. "/bin/python3" }) do
+    if vim.fn.executable(candidate) == 1 then
+      python = candidate
+      break
+    end
+  end
+
+  if not python then
+    return nil
+  end
+
+  local purelib = vim.fn.systemlist({
+    python,
+    "-c",
+    "import sysconfig; print(sysconfig.get_paths()['purelib'])",
+  })[1]
+  if not purelib or purelib == "" then
+    return nil
+  end
+
+  return string.format("import sys; sys.path.insert(0, %q)", purelib)
+end
+
 return {
   {
     "kiyoon/jupynium.nvim",
@@ -59,16 +89,24 @@ return {
       },
       linters = {
         pylint = {
-          args = {
-            "--init-hook",
-            venv_path,
-            "-f",
-            "json",
-            "--from-stdin",
-            function()
-              return vim.api.nvim_buf_get_name(0)
-            end,
-          },
+          args = function()
+            local args = {
+              "-f",
+              "json",
+              "--from-stdin",
+              function()
+                return vim.api.nvim_buf_get_name(0)
+              end,
+            }
+
+            local hook = pylint_init_hook()
+            if hook then
+              table.insert(args, 1, hook)
+              table.insert(args, 1, "--init-hook")
+            end
+
+            return args
+          end,
         },
       },
     },

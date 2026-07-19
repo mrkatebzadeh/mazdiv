@@ -6,6 +6,16 @@ L_LSP.setup = function()
 		return
 	end
 
+	local function format_buffer()
+		local conform_ok, conform = pcall(require, "conform")
+		if conform_ok then
+			conform.format({ async = true, lsp_fallback = true })
+			return
+		end
+
+		vim.lsp.buf.format({ async = true })
+	end
+
 	local mappings = {
 		{
 			mode = { "v", "n" },
@@ -85,9 +95,7 @@ L_LSP.setup = function()
 			},
 			{
 				"<leader>lf",
-				function()
-					vim.lsp.buf.format({ async = true })
-				end,
+				format_buffer,
 				desc = "Format",
 				nowait = true,
 				remap = false,

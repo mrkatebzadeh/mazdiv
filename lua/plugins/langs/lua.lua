@@ -30,7 +30,7 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
-      ensure_installed = { "lua-language-server" },
+      ensure_installed = { "lua" },
     },
   },
   {
@@ -40,9 +40,9 @@ return {
         lua_ls = {
           mason = true,
           settings = {
-            lua_ls = {
-              formatting = {
-                command = {},
+            Lua = {
+              format = {
+                enable = false,
               },
             },
           },

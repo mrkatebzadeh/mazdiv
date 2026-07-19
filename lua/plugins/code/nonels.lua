@@ -20,7 +20,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 return {
 	"nvimtools/none-ls.nvim",
-	dependencies = { "mason.nvim" },
+	dependencies = { "mason-org/mason.nvim" },
 	config = function()
 		local null_ls = require("null-ls")
 		null_ls.setup({

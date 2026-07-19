@@ -1,4 +1,5 @@
 return {
+  enabled = false,
   "phaazon/hop.nvim",
   event = "BufRead",
   config = function()

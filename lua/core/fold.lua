@@ -18,8 +18,18 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
+local function safe_foldexpr()
+  local ok, res = pcall(vim.treesitter.foldexpr)
+  if ok and res then
+    return res
+  end
+  return "0"
+end
+
+_G.safe_foldexpr = safe_foldexpr
+
 vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldexpr = "v:lua.safe_foldexpr()"
 vim.opt.foldcolumn = "0"
 vim.opt.foldtext = ""
 vim.opt.foldlevel = 99

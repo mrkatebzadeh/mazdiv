@@ -31,13 +31,6 @@ return {
 			servers = {
 				rnix = {
 					mason = true,
-					settings = {
-						rnix = {
-							formatting = {
-								command = {},
-							},
-						},
-					},
 				},
 			},
 		},

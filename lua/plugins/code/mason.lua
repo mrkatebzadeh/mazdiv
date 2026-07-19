@@ -31,22 +31,23 @@ return {
 				"stylua",
 				"shellcheck",
 				"shfmt",
-				"shellcheck",
 			},
 		},
 		config = function(_, opts)
-			local notify = vim.notify
 			require("mason").setup(opts)
 			local mr = require("mason-registry")
-			mr:on("package:install:success", function()
-				notify("Mason: Successfully installed " .. pkg.name, vim.log.levels.INFO)
-			end)
+			mr:on(
+				"package:install:success",
+				vim.schedule_wrap(function(pkg)
+					vim.notify("Mason: Successfully installed " .. pkg.name, vim.log.levels.INFO)
+				end)
+			)
 
 			mr.refresh(function()
 				for _, tool in ipairs(opts.ensure_installed) do
 					local p = mr.get_package(tool)
 					if not p:is_installed() then
-						notify("Mason: Installing " .. tool .. "...", vim.log.levels.INFO)
+						vim.notify("Mason: Installing " .. tool .. "...", vim.log.levels.INFO)
 
 						p:install()
 					end

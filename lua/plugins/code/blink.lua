@@ -23,7 +23,6 @@ return {
 	version = "1.6.0",
 	dependencies = {
 		"rafamadriz/friendly-snippets",
-		"Kaiser-Yang/blink-cmp-avante",
 		{
 			"saghen/blink.compat",
 			optional = true,
@@ -56,30 +55,8 @@ return {
 			["<CR>"] = { "accept", "fallback" },
 		},
 		sources = {
-			default = { "avante", "lazydev", "lsp", "path", "snippets", "buffer" },
+			default = { "lazydev", "lsp", "path", "snippets", "buffer" },
 			providers = {
-				avante = {
-					module = "blink-cmp-avante",
-					name = "avante",
-					opts = {
-						avante = {
-							command = {
-								get_kind_name = function(_)
-									return "AvanteCmd"
-								end,
-							},
-							mention = {
-								get_kind_name = function(_)
-									return "AvanteMention"
-								end,
-							},
-						},
-						kind_icons = {
-							AvanteCmd = "",
-							AvanteMention = "",
-						},
-					},
-				},
 				lazydev = {
 					name = "LazyDev",
 					module = "lazydev.integrations.blink",

@@ -22,67 +22,46 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		lazy = false,
 		build = ":TSUpdate",
-		config = function()
-			local ts = require("nvim-treesitter")
-			local has_tree_sitter_cli = vim.fn.executable("tree-sitter") == 1
-			if has_tree_sitter_cli then
-				ts.install({
-					"bash",
-					"c",
-					"dockerfile",
-					"html",
-					"lua",
-					"markdown",
-					"python",
-					"rust",
-					"toml",
-					"vim",
-				})
+		opts_extend = { "ensure_installed" },
+		opts = {
+			auto_install = true,
+			highlight = { enable = true },
+			indent = { enable = true },
+			ensure_installed = {
+				"bash",
+				"c",
+				"dockerfile",
+				"html",
+				"lua",
+				"markdown",
+				"python",
+				"rust",
+				"toml",
+				"vim",
+			},
+		},
+		config = function(_, opts)
+			-- Work around broken nu highlight queries shipped by LhKipp/nvim-nu.
+			-- Neovim reports: "Invalid node type \"register\"".
+			-- nvim-nu overrides the runtime query; force nvim-treesitter's query instead.
+			do
+				local files = vim.api.nvim_get_runtime_file("queries/nu/highlights.scm", true)
+				local ts_file
+				for _, f in ipairs(files) do
+					if f:find("/nvim%-treesitter/") then
+						ts_file = f
+					end
+				end
+
+				if ts_file then
+					local ok_read, lines = pcall(vim.fn.readfile, ts_file)
+					if ok_read and type(lines) == "table" then
+						vim.treesitter.query.set("nu", "highlights", table.concat(lines, "\n"))
+					end
+				end
 			end
 
-			local group = vim.api.nvim_create_augroup("MazdivTreesitter", { clear = true })
-			vim.api.nvim_create_autocmd("FileType", {
-				group = group,
-				callback = function(args)
-					local buf = args.buf
-					if vim.bo[buf].buftype ~= "" then
-						return
-					end
-
-					local ft = vim.bo[buf].filetype
-					local lang = vim.treesitter.language.get_lang(ft)
-					if not lang then
-						return
-					end
-
-					local ok = pcall(vim.treesitter.start, buf, lang)
-					if ok then
-						vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-						return
-					end
-
-					if not has_tree_sitter_cli then
-						return
-					end
-
-					-- Parser missing (or broken): try installing, then enable treesitter for this buffer.
-					local task = ts.install(lang)
-					if task and task.await then
-						task:await(function(err)
-							if err then
-								return
-							end
-							vim.schedule(function()
-								if not vim.api.nvim_buf_is_valid(buf) then
-									return
-								end
-								pcall(vim.treesitter.start, buf, lang)
-								vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-							end)
-						end)
-					end
-				end,
-			})
+			require("nvim-treesitter.configs").setup(opts)
 		end,
 	},
 	{

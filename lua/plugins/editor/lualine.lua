@@ -49,12 +49,12 @@ return {
 				end
 			end
 
-			local formatter_s, _ = pcall(require, "formatter")
-			if formatter_s then
-				local formatter_util = require("formatter.util")
-				for _, formatter in ipairs(formatter_util.get_available_formatters_for_ft(buf_ft)) do
-					if formatter then
-						table.insert(buf_client_names, formatter)
+			local conform_s, conform = pcall(require, "conform")
+			if conform_s then
+				local formatters = conform.list_formatters_to_run(0)
+				for _, formatter in ipairs(formatters) do
+					if formatter and formatter.name then
+						table.insert(buf_client_names, formatter.name)
 					end
 				end
 			end

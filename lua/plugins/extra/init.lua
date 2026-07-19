@@ -26,6 +26,7 @@ return {
   { import = "plugins.extra.leetcode" },
   { import = "plugins.extra.hardtime" },
   { import = "plugins.extra.oil" },
+  { import = "plugins.extra.neodev" },
   { import = "plugins.extra.terminal" },
   { import = "plugins.extra.typr" },
 }
