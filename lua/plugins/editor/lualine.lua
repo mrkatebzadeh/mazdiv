@@ -13,7 +13,7 @@ return {
 
 			-- add client
 			for _, client in pairs(buf_clients) do
-				if client.name ~= "copilot" and client.name ~= "null-ls" then
+				if client.name ~= "null-ls" then
 					table.insert(buf_client_names, client.name)
 				end
 			end
@@ -86,10 +86,10 @@ return {
 		}
 
 		require("lualine").setup({
-			extensions = { "neo-tree", "quickfix", "nvim-dap-ui" },
+			extensions = { "quickfix", "nvim-dap-ui" },
 			options = {
 				globalstatus = false,
-				disabled_filetypes = { "alpha", "neo-tree", "Outline", "neotest-summary" },
+				disabled_filetypes = { "alpha", "Outline", "neotest-summary" },
 				theme = "catppuccin",
 			},
 			sections = {

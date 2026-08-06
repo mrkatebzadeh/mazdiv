@@ -20,7 +20,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 return {
   { import = "plugins.colorscheme.catppuccin" },
-  { import = "plugins.colorscheme.doom" },
   { import = "plugins.colorscheme.neofusion" },
 }
 

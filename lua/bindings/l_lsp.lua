@@ -43,8 +43,8 @@ L_LSP.setup = function()
 			},
 			{
 				"<leader>lI",
-				"<CMD>LspInstallInfo<CR>",
-				desc = "Installer Info",
+				"<CMD>Mason<CR>",
+				desc = "Open Mason",
 				nowait = true,
 				remap = false,
 			},

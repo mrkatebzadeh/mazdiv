@@ -35,16 +35,11 @@ return {
 					return not vim.b[buf].lazyterm_cmd
 				end,
 			},
-			"Trouble",
 			{
 				ft = "qf",
 				title = "QuickFix",
 			},
 			"trouble",
-			{
-				ft = "qf",
-				title = "QuickFix",
-			},
 			{
 				ft = "help",
 				title = "Help",
@@ -52,10 +47,6 @@ return {
 				filter = function(buf)
 					return vim.bo[buf].buftype == "help"
 				end,
-			},
-			{
-				ft = "spectre_panel",
-				size = { height = 0.4 },
 			},
 		},
 		left = {

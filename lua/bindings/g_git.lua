@@ -110,13 +110,6 @@ G_GIT.setup = function()
 				remap = false,
 			},
 			{
-				"<leader>gs",
-				"<CMD>Neogit<CR>",
-				desc = "Lazygit",
-				nowait = true,
-				remap = false,
-			},
-			{
 				"<leader>gu",
 				"<CMD>lua require 'gitsigns'.undo_stage_hunk()<CR>",
 				desc = "Undo Stage Hunk",

@@ -23,12 +23,6 @@ return {
 	version = "1.6.0",
 	dependencies = {
 		"rafamadriz/friendly-snippets",
-		{
-			"saghen/blink.compat",
-			optional = true,
-			opts = {},
-			version = not vim.g.lazyvim_blink_main and "*",
-		},
 	},
 	event = "InsertEnter",
 
@@ -36,7 +30,6 @@ return {
 	---@type blink.cmp.Config
 	opts_extend = {
 		"sources.completion.enabled_providers",
-		"sources.compat",
 		"sources.default",
 	},
 	opts = {

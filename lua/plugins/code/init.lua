@@ -30,9 +30,8 @@ return {
   { import = "plugins.code.neogen" },
   { import = "plugins.code.neotest" },
   { import = "plugins.code.nonels" },
-  { import = "plugins.code.refactor" },
-  { import = "plugins.code.snippets" },
-  { import = "plugins.code.tasks" },
+   { import = "plugins.code.refactor" },
+   { import = "plugins.code.tasks" },
 }
 
 --[[ init.lua ends here. ]]

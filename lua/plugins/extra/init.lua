@@ -19,14 +19,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 return {
-  { import = "plugins.extra.codecompanion" },
-  { import = "plugins.extra.copilot" },
   { import = "plugins.extra.emoji" },
   { import = "plugins.extra.git" },
   { import = "plugins.extra.leetcode" },
-  { import = "plugins.extra.hardtime" },
-  { import = "plugins.extra.oil" },
-  { import = "plugins.extra.neodev" },
   { import = "plugins.extra.terminal" },
   { import = "plugins.extra.typr" },
 }

@@ -18,20 +18,20 @@ But forged in the clarity of Lua and the fire of performance.
 
 - ✨ **Lazy.nvim** — The Prophet of Speed,
   Who loadeth only when called, wasting not a single millisecond.
-- 🧠 **LSP** — Oracle of Completion and Diagnostics,
+- 🧠 **LSP and Blink** — Oracles of Completion and Diagnostics,
   Speaking truth in real time, without the noise of overconfiguration.
 - 🌲 **Tree-sitter** — Scribe of Syntax,
   Illuminating code not with Lisp incantations, but with precision.
-- 🔭 **Telescope** — Seer of Files and Commands,
-  Guiding the seeker with fuzzy light.
+- 🔭 **Snacks** — Seer of Files, Commands, Projects, and Git,
+  Guiding the seeker with one focused fuzzy interface.
 - 🗝️ **Keybindings** — Mapped with intent,
   Swift motions without the gymnastics of Emacs fingers.
-- 🧬 **vim-fugitive** — Commander of Git,
-  Who bindeth the repository to the editor.
+- 🧬 **Gitsigns and Lazygit** — Commanders of Git,
+  Binding hunks and repositories to the editor.
 - 📊 **Lualine** — Status Bearer,
   A line of clarity, minimal yet mighty.
-- 🌳 **Nvim-tree** — Guardian of Files,
-  Who openeth the structure of projects with elegance.
+- 🦀 **Rust and CMake** — Builders of native code,
+  With LaTeX and Markdown scribes for those who write beyond code.
 
 ## Installation Rite
 

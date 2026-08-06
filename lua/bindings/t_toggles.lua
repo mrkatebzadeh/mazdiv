@@ -13,32 +13,12 @@ T_TOGGLES.setup = function()
 		end
 	end
 
-	local satelliteEnabled = true
-
-	function SatelliteToggle()
-		if satelliteEnabled then
-			vim.api.nvim_command("SatelliteDisable")
-			satelliteEnabled = false
-		else
-			vim.api.nvim_command("SatelliteEnable")
-			vim.api.nvim_command("SatelliteRefresh")
-			satelliteEnabled = true
-		end
-	end
-
 	local mappings = {
 		{
 			mode = { "v", "n" },
 			{
 				"<leader>t",
 				group = "toggles",
-				nowait = true,
-				remap = false,
-			},
-			{
-				"<leader>th",
-				"<CMD>Hardtime toggle<CR>",
-				desc = "Toggle Hard Mode",
 				nowait = true,
 				remap = false,
 			},
@@ -78,13 +58,6 @@ T_TOGGLES.setup = function()
 				"<leader>to",
 				"<CMD>Outline<CR>",
 				desc = "Toggle Outline",
-				nowait = true,
-				remap = false,
-			},
-			{
-				"<leader>ts",
-				"<CMD>lua SatelliteToggle()<CR>",
-				desc = "Scrollbar",
 				nowait = true,
 				remap = false,
 			},
