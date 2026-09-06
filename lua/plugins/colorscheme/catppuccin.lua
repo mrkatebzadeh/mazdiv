@@ -23,7 +23,7 @@ return {
   lazy = false,
   name = "catppuccin",
   priority = 1000,
-  enabled = true,
+  enabled = false,
   config = function()
     require("catppuccin").setup({
       flavour = "frappe",

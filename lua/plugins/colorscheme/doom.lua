@@ -1,4 +1,4 @@
---[[ init.lua
+--[[ doom.lua
 
 Author: M.R. Siavash Katebzadeh <mr@katebzadeh.xyz>
 Keywords: Lua, Neovim
@@ -19,9 +19,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 return {
-  { import = "plugins.colorscheme.doom" },
-  { import = "plugins.colorscheme.catppuccin" },
-  { import = "plugins.colorscheme.neofusion" },
+  {
+    name = "doom",
+    dir = vim.fn.stdpath("config"),
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.o.termguicolors = true
+      vim.o.background = "dark"
+      vim.cmd([[colorscheme doom]])
+    end,
+  },
 }
 
---[[ init.lua ends here. ]]
+--[[ doom.lua ends here. ]]

@@ -90,7 +90,7 @@ return {
 			options = {
 				globalstatus = false,
 				disabled_filetypes = { "alpha", "Outline", "neotest-summary" },
-				theme = "catppuccin",
+				theme = "auto",
 			},
 			sections = {
 				lualine_b = { "branch", "diff" },
