@@ -32,4 +32,3 @@ return {
 		end,
 	},
 }
---[[ nu.lua ends here. ]]

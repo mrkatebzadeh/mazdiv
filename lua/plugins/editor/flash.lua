@@ -20,7 +20,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 return {
 	"folke/flash.nvim",
 	event = "VeryLazy",
-	---@type Flash.Config
+
 	opts = {},
 	keys = {
 		{
@@ -65,4 +65,3 @@ return {
 		},
 	},
 }
---[[ flash.lua ends here. ]]

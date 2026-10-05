@@ -64,4 +64,3 @@ return {
 		},
 	},
 }
---[[ latex.lua ends here. ]]

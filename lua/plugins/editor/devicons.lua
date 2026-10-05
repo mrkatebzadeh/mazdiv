@@ -22,5 +22,3 @@ return {
 	"nvim-tree/nvim-web-devicons",
 	lazy = true,
 }
-
---[[ devicons.lua ends here. ]]

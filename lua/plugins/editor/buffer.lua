@@ -25,7 +25,14 @@ return {
   },
   {
     "cappyzawa/trim.nvim",
-    opts = {},
+    opts = {
+      trim_first_line = false,
+      trim_last_line = false,
+      patterns = {
+        [[%s/\%^\n\+//e]],
+        [[%s/\($\n\s*\)\+\%$//e]],
+      },
+    },
   },
   {
     "hedyhli/outline.nvim",
@@ -34,7 +41,7 @@ return {
     end,
   },
   {
-    -- The fastest Neovim colorizer.
+
     "norcalli/nvim-colorizer.lua",
   },
   {
@@ -53,5 +60,3 @@ return {
     end,
   },
 }
-
---[[ buffer.lua ends here. ]]

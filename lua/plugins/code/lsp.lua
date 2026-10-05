@@ -29,8 +29,7 @@ return {
 			inlay_hints = { enabled = true },
 		},
 		config = function(_, opts)
-			-- nvim-lspconfig's legacy `require('lspconfig')` module is deprecated on Nvim 0.11+.
-			-- Use the builtin LSP config API instead.
+
 			for server, config in pairs(opts.servers or {}) do
 				config = config or {}
 				config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
@@ -40,4 +39,3 @@ return {
 		end,
 	},
 }
---[[ lsp.lua ends here. ]]

@@ -76,7 +76,6 @@ return {
 			},
 		}
 		dap.configurations.c = dap.configurations.cpp
-		-- dap.configurations.rust = dap.configurations.cpp
 
 		dap.configurations.python = dap.configurations.python or {}
 		table.insert(dap.configurations.python, {

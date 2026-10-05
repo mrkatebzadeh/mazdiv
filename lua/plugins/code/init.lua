@@ -33,5 +33,3 @@ return {
    { import = "plugins.code.refactor" },
    { import = "plugins.code.tasks" },
 }
-
---[[ init.lua ends here. ]]

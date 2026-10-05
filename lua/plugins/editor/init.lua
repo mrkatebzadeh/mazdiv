@@ -38,5 +38,3 @@ return {
 	{ import = "plugins.editor.yanky" },
 	{ import = "plugins.editor.zen" },
 }
-
---[[ init.lua ends here. ]]

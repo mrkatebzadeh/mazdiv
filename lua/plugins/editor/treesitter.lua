@@ -41,9 +41,7 @@ return {
 			},
 		},
 		config = function(_, opts)
-			-- Work around broken nu highlight queries shipped by LhKipp/nvim-nu.
-			-- Neovim reports: "Invalid node type \"register\"".
-			-- nvim-nu overrides the runtime query; force nvim-treesitter's query instead.
+
 			do
 				local files = vim.api.nvim_get_runtime_file("queries/nu/highlights.scm", true)
 				local ts_file
@@ -78,4 +76,3 @@ return {
 		end,
 	},
 }
---[[ treesitter.lua ends here. ]]

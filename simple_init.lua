@@ -1,6 +1,4 @@
--- ========================================================================== --
--- ==                           EDITOR SETTINGS                            == --
--- ========================================================================== --
+
 
 vim.opt.number = true
 vim.opt.mouse = "a"
@@ -13,33 +11,20 @@ vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = false
 
--- ========================================================================== --
--- ==                             KEYBINDINGS                              == --
--- ========================================================================== --
-
--- Space as leader key
 vim.g.mapleader = " "
 
--- Shortcuts
 vim.keymap.set({ "n", "x", "o" }, "<leader>h", "^")
 vim.keymap.set({ "n", "x", "o" }, "<leader>l", "g_")
 vim.keymap.set("n", "<leader>a", ":keepjumps normal! ggVG<cr>")
 
--- Basic clipboard interaction
 vim.keymap.set({ "n", "x" }, "cp", '"+y')
 vim.keymap.set({ "n", "x" }, "cv", '"+p')
 
--- Delete text
 vim.keymap.set({ "n", "x" }, "x", '"_x')
 
--- Commands
 vim.keymap.set("n", "<leader>w", "<cmd>write<cr>")
 vim.keymap.set("n", "<leader>bq", "<cmd>bdelete<cr>")
 vim.keymap.set("n", "<leader>bl", "<cmd>buffer #<cr>")
-
--- ========================================================================== --
--- ==                               COMMANDS                               == --
--- ========================================================================== --
 
 vim.api.nvim_create_user_command("ReloadConfig", "source $MYVIMRC | PackerCompile", {})
 
@@ -59,10 +44,6 @@ vim.api.nvim_create_autocmd("FileType", {
   command = "nnoremap <buffer> q <cmd>quit<cr>",
 })
 
--- ========================================================================== --
--- ==                               PLUGINS                                == --
--- ========================================================================== --
-
 local function ensure_packer()
   local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 
@@ -79,7 +60,6 @@ local function ensure_packer()
   return false
 end
 
--- You can "comment out" the line below after packer is installed
 local install_plugins = ensure_packer()
 
 require("packer").startup(function(use)
@@ -103,19 +83,9 @@ if install_plugins then
   return
 end
 
--- ========================================================================== --
--- ==                         PLUGIN CONFIGURATION                         == --
--- ========================================================================== --
-
----
--- Colorscheme
----
 vim.opt.termguicolors = true
 vim.cmd("colorscheme tokyonight")
 
----
--- lualine.nvim (statusline)
----
 vim.opt.showmode = false
 require("lualine").setup({
   options = {

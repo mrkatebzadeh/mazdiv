@@ -1,4 +1,3 @@
---- Don't create a comment string when hitting <Enter> on a comment line
 vim.api.nvim_create_autocmd("BufEnter", {
   group = vim.api.nvim_create_augroup("DisableNewLineAutoCommentString", {}),
   callback = function()
@@ -7,10 +6,13 @@ vim.api.nvim_create_autocmd("BufEnter", {
 })
 
 local ns = vim.api.nvim_create_namespace("CurlineDiag")
+local cursor_hold_group = vim.api.nvim_create_augroup("LspCursorHoldDiagnostic", {})
 vim.opt.updatetime = 100
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
+    vim.api.nvim_clear_autocmds({ group = cursor_hold_group, buffer = args.buf, event = "CursorHold" })
     vim.api.nvim_create_autocmd("CursorHold", {
+      group = cursor_hold_group,
       buffer = args.buf,
       callback = function()
         pcall(vim.api.nvim_buf_clear_namespace, args.buf, ns, 0, -1)
@@ -32,18 +34,22 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 vim.diagnostic.config({
   virtual_text = false,
-  -- virtual_lines = true,
+
   underline = true,
   signs = true,
   float = {
     border = "single",
     format = function(diagnostic)
-      return string.format(
-        "%s (%s) [%s]",
-        diagnostic.message,
-        diagnostic.source,
-        diagnostic.code or diagnostic.user_data.lsp.code
-      )
+      local lsp = type(diagnostic.user_data) == "table" and diagnostic.user_data.lsp
+      local code = diagnostic.code or (type(lsp) == "table" and lsp.code)
+      local details = { diagnostic.message or "" }
+      if diagnostic.source then
+        details[#details + 1] = string.format("(%s)", diagnostic.source)
+      end
+      if code then
+        details[#details + 1] = string.format("[%s]", code)
+      end
+      return table.concat(details, " ")
     end,
   },
 })
@@ -108,7 +114,11 @@ local function set_project_cwd()
     root_dir = vim.fn.fnamemodify(buf_path, ":p:h")
   end
 
-  vim.cmd("cd " .. root_dir)
+  if type(root_dir) ~= "string" or root_dir == "" or vim.fn.getcwd() == root_dir then
+    return
+  end
+
+  pcall(api.nvim_set_current_dir, root_dir)
 end
 
 vim.api.nvim_create_autocmd({ "BufEnter" }, {

@@ -4,12 +4,12 @@ if not status_ok then
 end
 
 local opts = {
-	mode = "n", -- NORMAL mode
+	mode = "n",
 	prefix = "<leader>",
-	buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-	silent = true, -- use `silent` when creating keymaps
-	noremap = true, -- use `noremap` when creating keymaps
-	nowait = true, -- use `nowait` when creating keymaps
+	buffer = nil,
+	silent = true,
+	noremap = true,
+	nowait = true,
 }
 
 local mappings = {

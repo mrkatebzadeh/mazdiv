@@ -26,5 +26,3 @@ return {
 	{ import = "plugins.ui.noice" },
 	{ import = "plugins.ui.snacks" },
 }
-
---[[ init.lua ends here. ]]

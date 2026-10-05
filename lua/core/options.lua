@@ -15,13 +15,11 @@ vim.o.relativenumber = true
 
 vim.opt.clipboard = "unnamedplus"
 
--- Normal mode
 vim.keymap.set("n", "yy", '"+yy')
 vim.keymap.set("n", "dd", '"+dd')
 vim.keymap.set("n", "p", '"+p')
 vim.keymap.set("n", "P", '"+P')
 
--- Visual mode
 vim.keymap.set("v", "y", '"+y')
 vim.keymap.set("v", "d", '"+d')
 vim.keymap.set("v", "p", '"+p')
@@ -29,7 +27,6 @@ vim.keymap.set("v", "p", '"+p')
 vim.api.nvim_set_keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })
 vim.opt.swapfile = false
 
--- Navigate vim panes better
 vim.keymap.set("n", "<c-k>", ":wincmd k<CR>")
 vim.keymap.set("n", "<c-j>", ":wincmd j<CR>")
 vim.keymap.set("n", "<c-h>", ":wincmd h<CR>")

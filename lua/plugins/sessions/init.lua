@@ -21,5 +21,3 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 return {
 	{ import = "plugins.sessions.persistence" },
 }
-
---[[ init.lua ends here. ]]

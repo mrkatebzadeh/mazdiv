@@ -23,5 +23,3 @@ return {
   event = "BufReadPre",
   opts = {},
 }
-
---[[ persistence.lua ends here. ]]

@@ -20,37 +20,9 @@ F_FILES.setup = function()
 			mode = { "v", "n" },
 			{ "<leader>f", group = "Files", nowait = true, remap = false },
 			{
-				"<leader>fE",
-				":SudoEdit ",
-				desc = "SudoEdit",
-				nowait = true,
-				remap = false,
-			},
-			{
 				"<leader>fF",
 				"<CMD>EditBufferDir<CR>",
 				desc = "Find File",
-				nowait = true,
-				remap = false,
-			},
-			{
-				"<leader>fW",
-				":SudoWrite<CR>",
-				desc = "SudoWrite",
-				nowait = true,
-				remap = false,
-			},
-			{
-				"<leader>fc",
-				":Chmod ",
-				desc = "Chmod",
-				nowait = true,
-				remap = false,
-			},
-			{
-				"<leader>fd",
-				":Delete<CR>",
-				desc = "Delete",
 				nowait = true,
 				remap = false,
 			},
@@ -82,20 +54,6 @@ F_FILES.setup = function()
 				remap = false,
 			},
 			{
-				"<leader>fk",
-				"<CMD>Mkdir ",
-				desc = "Mkdir",
-				nowait = true,
-				remap = false,
-			},
-			{
-				"<leader>fm",
-				"<CMD>Move ",
-				desc = "Move",
-				nowait = true,
-				remap = false,
-			},
-			{
 				"<leader>ff",
 				function()
 					Snacks.picker.files()
@@ -114,15 +72,8 @@ F_FILES.setup = function()
 				remap = false,
 			},
 			{
-				"<leader>fr",
-				":Rename ",
-				desc = "Rename",
-				nowait = true,
-				remap = false,
-			},
-			{
 				"<leader>fw",
-				":cmd>w!<CR>",
+				":write<CR>",
 				desc = "Save",
 				nowait = true,
 				remap = false,

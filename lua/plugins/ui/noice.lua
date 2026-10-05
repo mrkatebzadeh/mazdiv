@@ -157,7 +157,7 @@ return {
 			},
 			presets = {
 				long_message_to_split = true,
-				-- lsp_doc_border = true,
+
 			},
 			routes = {
 				{ filter = { find = "E162" }, view = "mini" },

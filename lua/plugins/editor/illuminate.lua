@@ -42,5 +42,3 @@ return {
 		})
 	end,
 }
-
---[[ illuminate.lua ends here. ]]

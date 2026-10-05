@@ -41,4 +41,3 @@ return {
 		},
 	},
 }
---[[ cpp.lua ends here. ]]

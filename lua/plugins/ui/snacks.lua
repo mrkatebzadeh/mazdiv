@@ -64,9 +64,9 @@ return {
 		dashboard = {
 			enabled = true,
 			preset = {
-				---@type fun(cmd:string, opts:table)|nil
+
 				pick = nil,
-				---@type snacks.dashboard.Item[]
+
 				keys = {
 					{ icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
 					{ icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
@@ -98,7 +98,7 @@ return {
 					},
 					{ icon = " ", key = "q", desc = "Quit", action = ":qa" },
 				},
-				-- Used by the `header` section
+
 				header = [[
 ███╗   ███╗ █████╗ ███████╗██████╗ ██╗██╗   ██╗
 ████╗ ████║██╔══██╗╚══███╔╝██╔══██╗██║██║   ██║
@@ -164,5 +164,3 @@ return {
 		words = { enabled = true },
 	},
 }
-
---[[ snacks.lua ends here. ]]

@@ -31,4 +31,3 @@ return {
     require("emoji").setup(opts)
   end,
 }
---[[ emoji.lua ends here. ]]

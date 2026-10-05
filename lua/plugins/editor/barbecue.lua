@@ -1,5 +1,5 @@
 return {
-	-- Visual Studio Code inspired breadcrumbs plugin for the Neovim editor
+
 	"utilyre/barbecue.nvim",
 	version = "v1.*",
 	lazy = true,

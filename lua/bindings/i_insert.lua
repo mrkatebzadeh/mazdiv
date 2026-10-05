@@ -35,4 +35,3 @@ I_INSERT.setup = function()
 end
 
 return I_INSERT
---[[ i_insert.lua ends here. ]]

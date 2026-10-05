@@ -35,6 +35,3 @@ vim.opt.foldtext = ""
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 1
 vim.opt.foldnestmax = 4
-
-
---[[ fold.lua ends here. ]]

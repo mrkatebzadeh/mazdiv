@@ -24,6 +24,4 @@
 
 
 
-#endif /* @CPP_HDR_GUARD@ */
-
-/* @FILENAME@ ends here */
+#endif

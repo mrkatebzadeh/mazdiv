@@ -23,7 +23,6 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- require("lsp-manager")
 require("lazy").setup("plugins", {
   ui = {
     size = { width = 0.9, height = 0.4 },

@@ -43,5 +43,3 @@ return {
     vim.cmd([[colorscheme catppuccin]])
   end,
 }
-
---[[ catppuccin.lua ends here. ]]

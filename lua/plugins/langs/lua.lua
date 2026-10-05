@@ -51,4 +51,3 @@ return {
     },
   },
 }
---[[ lua.lua ends here. ]]

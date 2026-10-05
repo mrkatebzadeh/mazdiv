@@ -23,5 +23,3 @@ return {
 	event = "BufEnter",
 	config = true,
 }
-
---[[ goto.lua ends here. ]]

@@ -26,5 +26,3 @@ require("core.utils")
 if vim.g.neovide then
   require("core.neovide")
 end
-
---[[ init.lua ends here. ]]

@@ -23,5 +23,3 @@ return {
   { import = "plugins.colorscheme.catppuccin" },
   { import = "plugins.colorscheme.neofusion" },
 }
-
---[[ init.lua ends here. ]]

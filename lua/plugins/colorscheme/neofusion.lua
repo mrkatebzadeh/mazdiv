@@ -23,5 +23,3 @@ return {
   priority = 1000,
   config = true,
 }
-
---[[ neofusion.lua ends here. ]]

@@ -11,7 +11,6 @@ return {
 			local buf_ft = vim.bo.filetype
 			local buf_client_names = {}
 
-			-- add client
 			for _, client in pairs(buf_clients) do
 				if client.name ~= "null-ls" then
 					table.insert(buf_client_names, client.name)

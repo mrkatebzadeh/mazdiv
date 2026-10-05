@@ -43,4 +43,3 @@ return {
 		},
 	},
 }
---[[ shell.lua ends here. ]]

@@ -23,6 +23,3 @@ return {
   config = true,
   version = "2.17.1",
 }
-
-
---[[ neogen.lua ends here. ]]

@@ -31,5 +31,3 @@ return {
     end,
   },
 }
-
---[[ doom.lua ends here. ]]

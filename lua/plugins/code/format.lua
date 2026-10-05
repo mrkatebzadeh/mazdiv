@@ -33,5 +33,3 @@ return {
     })
   end,
 }
-
---[[ format.lua ends here. ]]

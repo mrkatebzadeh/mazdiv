@@ -31,5 +31,3 @@ return {
 	{ import = "plugins.langs.shell" },
 	{ import = "plugins.langs.python" },
 }
-
---[[ init.lua ends here. ]]

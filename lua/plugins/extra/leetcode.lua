@@ -32,4 +32,3 @@ return {
 		picker = { provider = "snacks-picker" },
 	},
 }
---[[ leetcode.lua ends here. ]]

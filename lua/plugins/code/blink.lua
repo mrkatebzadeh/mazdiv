@@ -26,8 +26,6 @@ return {
 	},
 	event = "InsertEnter",
 
-	---@module 'blink.cmp'
-	---@type blink.cmp.Config
 	opts_extend = {
 		"sources.completion.enabled_providers",
 		"sources.default",
@@ -59,4 +57,3 @@ return {
 		},
 	},
 }
---[[ blink.lua ends here. ]]

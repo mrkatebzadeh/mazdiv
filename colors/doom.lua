@@ -26,21 +26,19 @@ vim.o.termguicolors = true
 vim.o.background = "dark"
 vim.g.colors_name = "doom"
 
--- Centralized Doom palette.
--- Base identity (10) + derived brights/surfaces + functional tints.
 local p = {
-  -- base identity
-  bg       = "#2b2f2d", -- charcoal metal (main background)
-  oxidized = "#2f5d50", -- dark oxidized green (dark surface)
-  silver_green = "#8fa39b", -- muted silver-green (secondary fg)
-  silver   = "#c4c9c7", -- light silver (primary fg)
-  olive    = "#6f7d3c", -- olive
-  emerald  = "#1e8a6a", -- strong green identity
-  brass    = "#a88b4a", -- aged brass
-  crimson  = "#8b3a3a", -- dark crimson
-  purple   = "#5b4b78", -- muted arcane purple
-  steel    = "#3f667a", -- cold steel blue
-  -- derived surfaces / neutrals
+
+  bg       = "#2b2f2d",
+  oxidized = "#2f5d50",
+  silver_green = "#8fa39b",
+  silver   = "#c4c9c7",
+  olive    = "#6f7d3c",
+  emerald  = "#1e8a6a",
+  brass    = "#a88b4a",
+  crimson  = "#8b3a3a",
+  purple   = "#5b4b78",
+  steel    = "#3f667a",
+
   bg_dark    = "#222625",
   bg_surface = "#323735",
   bg_visual  = "#3e524a",
@@ -50,7 +48,7 @@ local p = {
   doc        = "#9ab3a9",
   param      = "#9db8ad",
   prop       = "#a9beb6",
-  -- derived brights (syntax foregrounds)
+
   emerald_bright = "#46bd94",
   moss           = "#a9c25e",
   gold           = "#d2a959",
@@ -64,7 +62,7 @@ local p = {
   lavender       = "#b9a4e6",
   red_bright     = "#d47171",
   hint           = "#7fb8a3",
-  -- functional tints
+
   diff_add    = "#2b4038",
   diff_change = "#3c3a29",
   diff_delete = "#3e2d2d",
@@ -76,7 +74,6 @@ local function hl(group, opts)
   vim.api.nvim_set_hl(0, group, opts)
 end
 
--- Core editor UI -----------------------------------------------------------
 hl("Normal", { fg = p.silver, bg = p.bg })
 hl("NormalNC", { fg = p.silver, bg = p.bg_dark })
 hl("NormalFloat", { fg = p.silver, bg = p.bg_surface })
@@ -125,7 +122,6 @@ hl("WildMenu", { fg = p.silver, bg = p.bg_visual, bold = true })
 hl("QuickFixLine", { fg = p.silver, bg = p.bg_visual, bold = true })
 hl("Substitute", { fg = p.bg, bg = p.gold })
 
--- Legacy syntax ------------------------------------------------------------
 hl("Comment", { fg = p.comment, italic = true })
 hl("SpecialComment", { fg = p.brass, italic = true })
 hl("Constant", { fg = p.gold_light })
@@ -161,7 +157,6 @@ hl("Ignore", { fg = p.fg_muted })
 hl("Error", { fg = p.red_bright, bg = p.diff_delete })
 hl("Todo", { fg = p.gold, bold = true })
 
--- Diff ---------------------------------------------------------------------
 hl("DiffAdd", { bg = p.diff_add, fg = p.silver })
 hl("DiffChange", { bg = p.diff_change, fg = p.silver })
 hl("DiffDelete", { bg = p.diff_delete, fg = p.red_bright })
@@ -178,13 +173,11 @@ hl("diffOldFile", { fg = p.red_bright })
 hl("diffLine", { fg = p.silver_green })
 hl("diffIndexLine", { fg = p.brass })
 
--- Spell --------------------------------------------------------------------
 hl("SpellBad", { undercurl = true, sp = p.red_bright })
 hl("SpellCap", { undercurl = true, sp = p.steel_bright })
 hl("SpellRare", { undercurl = true, sp = p.violet })
 hl("SpellLocal", { undercurl = true, sp = p.aqua })
 
--- Tree-sitter --------------------------------------------------------------
 hl("@variable", { fg = p.silver })
 hl("@variable.builtin", { fg = p.violet })
 hl("@variable.parameter", { fg = p.param })
@@ -264,7 +257,6 @@ hl("@diff.plus", { fg = p.emerald_bright })
 hl("@diff.minus", { fg = p.red_bright })
 hl("@diff.delta", { fg = p.gold })
 
--- LSP / diagnostics --------------------------------------------------------
 hl("DiagnosticError", { fg = p.red_bright })
 hl("DiagnosticWarn", { fg = p.gold })
 hl("DiagnosticInfo", { fg = p.steel_bright })
@@ -298,7 +290,6 @@ hl("LspInlayHint", { fg = p.fg_muted, bg = p.bg_dark })
 hl("LspCodeLens", { fg = p.fg_muted })
 hl("LspCodeLensSeparator", { fg = p.fg_muted })
 
--- Git ----------------------------------------------------------------------
 hl("GitSignsAdd", { fg = p.emerald_bright, bg = p.bg })
 hl("GitSignsChange", { fg = p.gold, bg = p.bg })
 hl("GitSignsDelete", { fg = p.red_bright, bg = p.bg })
@@ -315,7 +306,6 @@ hl("gitcommitUntracked", { fg = p.fg_muted })
 hl("gitcommitDiscarded", { fg = p.fg_muted })
 hl("gitcommitSelected", { fg = p.emerald_bright })
 
--- blink.cmp ----------------------------------------------------------------
 hl("BlinkCmpMenu", { link = "Pmenu" })
 hl("BlinkCmpMenuBorder", { link = "FloatBorder" })
 hl("BlinkCmpMenuSelection", { link = "PmenuSel" })
@@ -347,7 +337,6 @@ hl("BlinkCmpDocSeparator", { fg = p.border })
 hl("BlinkCmpSignatureHelp", { link = "NormalFloat" })
 hl("BlinkCmpSignatureHelpBorder", { link = "FloatBorder" })
 
--- Snacks -------------------------------------------------------------------
 hl("SnacksNormal", { link = "Normal" })
 hl("SnacksWinBar", { link = "WinBar" })
 hl("SnacksBackdrop", { bg = "#1b1e1d" })
@@ -379,7 +368,6 @@ hl("SnacksNotifierTitleInfo", { fg = p.steel_bright, bold = true })
 hl("SnacksNotifierTitleWarn", { fg = p.gold, bold = true })
 hl("SnacksNotifierTitleError", { fg = p.red_bright, bold = true })
 
--- Noice / Notify -----------------------------------------------------------
 hl("NoiceCmdlinePopup", { link = "NormalFloat" })
 hl("NoiceCmdlinePopupBorder", { link = "FloatBorder" })
 hl("NoiceCmdlineIcon", { fg = p.emerald_bright })
@@ -402,7 +390,6 @@ hl("NotifyERRORBody", { fg = p.silver, bg = p.bg_surface })
 hl("NotifyWARNBody", { fg = p.silver, bg = p.bg_surface })
 hl("NotifyINFOBody", { fg = p.silver, bg = p.bg_surface })
 
--- Trouble / WhichKey / Mason / misc UI ------------------------------------
 hl("TroubleNormal", { link = "Normal" })
 hl("TroubleText", { fg = p.silver })
 hl("TroubleCount", { fg = p.gold, bold = true })
@@ -490,7 +477,6 @@ hl("NumbCursorLineNr", { fg = p.gold, bold = true })
 hl("BqfPreviewFloat", { link = "NormalFloat" })
 hl("BqfPreviewBorder", { link = "FloatBorder" })
 
--- Terminal -----------------------------------------------------------------
 vim.g.terminal_color_0 = p.bg_dark
 vim.g.terminal_color_1 = p.crimson
 vim.g.terminal_color_2 = p.emerald
@@ -507,5 +493,3 @@ vim.g.terminal_color_12 = p.steel_bright
 vim.g.terminal_color_13 = p.violet
 vim.g.terminal_color_14 = p.aqua
 vim.g.terminal_color_15 = p.silver
-
---[[ doom.lua ends here. ]]

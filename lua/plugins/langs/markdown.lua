@@ -109,4 +109,3 @@ return {
 		},
 	},
 }
---[[ markdown.lua ends here. ]]

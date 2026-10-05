@@ -25,4 +25,3 @@ return {
   { import = "plugins.extra.terminal" },
   { import = "plugins.extra.typr" },
 }
---[[ init.lua ends here. ]]

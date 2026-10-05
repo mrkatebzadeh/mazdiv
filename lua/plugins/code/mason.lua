@@ -56,5 +56,3 @@ return {
 		end,
 	},
 }
-
---[[ mason.lua ends here. ]]

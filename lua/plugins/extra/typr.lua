@@ -23,5 +23,3 @@ return {
 	opts = {},
 	cmd = { "Typr", "TyprStats" },
 }
-
---[[ typr.lua ends here. ]]
